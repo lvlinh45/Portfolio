@@ -40,7 +40,7 @@ export const Title = styled.div`
 export const Desc = styled.div`
   font-size: 18px;
   text-align: center;
-  max-width: 600px;
+  max-width: 640px;
   color: ${({ theme }) => theme.text_secondary};
   @media (max-width: 768px) {
     font-size: 16px;
@@ -122,8 +122,8 @@ const Skills = () => {
       <Wrapper>
         <Title>Skills</Title>
         <Desc>
-          Here are some of my skills on which I have been working on for the
-          past 2 years.
+          Here are some skills that I practiced during my four years of
+          university.
         </Desc>
         <SkillsContainer>
           {skills.map((skill, index) => (
@@ -133,7 +133,7 @@ const Skills = () => {
                 {skill.skills.map((item, index) => (
                   <SkillItem key={index}>
                     <SkillImage src={item.image} />
-                    {item.name}
+                    <span>{item.name}</span>
                   </SkillItem>
                 ))}
               </SkillList>

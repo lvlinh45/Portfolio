@@ -180,7 +180,7 @@ const ResumeButton = styled.a`
     hsla(271, 100%, 50%, 1) 0%,
     hsla(294, 100%, 50%, 1) 100%
   );
-  box-shadow: 20px 20px 60px #1f2634, -20px -20px 60px #1f2634;
+  /*   box-shadow: 20px 20px 60px #1f2634, -20px -20px 60px #1f2634; */
   &:hover {
     transform: scale(1.05);
     transition: all 0.4s ease-in-out;

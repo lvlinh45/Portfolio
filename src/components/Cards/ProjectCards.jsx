@@ -104,10 +104,9 @@ const Avatar = styled.img`
   border: 3px solid ${({ theme }) => theme.card};
 `;
 
-const ProjectCard = ({ project }) => {
-  console.log("TCL: ProjectCard -> project", project);
+const ProjectCard = ({ project, setOpenModal }) => {
   return (
-    <Card>
+    <Card onClick={() => setOpenModal({ state: true, project: project })}>
       <Image src={project.image} />
       <Tags>
         {project.tags.map((tag, index) => (
@@ -119,11 +118,11 @@ const ProjectCard = ({ project }) => {
         <Date>{project.date}</Date>
         <Description>{project.description}</Description>
       </Details>
-      <Members>
+      {/*   <Members>
         {project.member?.map((member, index) => (
           <Avatar key={index} src={member.img} />
         ))}
-      </Members>
+      </Members> */}
     </Card>
   );
 };

@@ -101,6 +101,7 @@ export const ButtonContainer = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
+  gap: 20px;
   padding: 0 6px;
   @media screen and (max-width: 768px) {
     display: none;

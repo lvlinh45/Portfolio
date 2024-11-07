@@ -10,16 +10,14 @@ import {
   ButtonContainer,
   MobileIcon,
   MobileMenu,
-  MobileNavLogo,
   MobileLink,
 } from "./NavbarStyledComponent";
 import { DiCssdeck } from "react-icons/di";
 import { FaBars } from "react-icons/fa";
 import { Bio } from "../../data/constants";
-import { Close, CloseRounded } from "@mui/icons-material";
 import { useTheme } from "styled-components";
-
-const Navbar = () => {
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+const Navbar = ({ darkMode, setDarkMode }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const theme = useTheme();
   return (
@@ -35,7 +33,19 @@ const Navbar = () => {
               cursor: "pointer",
             }}
           >
-            <DiCssdeck size="3rem" /> <Span>Portfolio</Span>
+            <DiCssdeck
+              size="3rem"
+              style={{
+                color: darkMode ? "white" : "black",
+              }}
+            />{" "}
+            <Span
+              style={{
+                color: darkMode ? "white" : "black",
+              }}
+            >
+              Portfolio
+            </Span>
           </a>
         </NavLogo>
         <MobileIcon>
@@ -56,6 +66,15 @@ const Navbar = () => {
           <GitHubButton href={Bio.github} target="_blank">
             Github Profile
           </GitHubButton>
+          <DarkModeIcon
+            color="secondary"
+            sx={`font-size: 36px; cursor: pointer; ${
+              darkMode ? "color: white" : "color: black"
+            } `}
+            onClick={() => {
+              setDarkMode(!darkMode);
+            }}
+          />
         </ButtonContainer>
         {isOpen && (
           <MobileMenu isOpen={isOpen}>
