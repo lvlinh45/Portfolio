@@ -6,12 +6,12 @@ Welcome to my portfolio! This project showcases my skills, projects, and experie
 
 ## Some Images:
 
-<img width="450px;" src="https://github.com/user-attachments/assets/626028a3-5a2b-40e0-a964-ed30d7181cad"/>
-<img width="450px;" src="https://github.com/user-attachments/assets/3f1e1585-e503-4491-8f48-8ceb4be02cd3"/>
-<img width="450px;" src="https://github.com/user-attachments/assets/25e075d8-15f7-467d-a8bc-2b6ded30d182"/>
-<img width="450px;" src="https://github.com/user-attachments/assets/ba24b4b3-0f03-40ab-9417-b235d5c5ffbe"/>
-<img width="450px;" src="https://github.com/user-attachments/assets/6f851153-ea53-4627-a745-7d6d28bfa846"/>
-<img width="450px;" src="https://github.com/user-attachments/assets/002409ab-b518-4840-b539-f8e0c8962f5d"/>
+<img width="550px;" src="https://github.com/user-attachments/assets/626028a3-5a2b-40e0-a964-ed30d7181cad"/>
+<img width="550px;" src="https://github.com/user-attachments/assets/3f1e1585-e503-4491-8f48-8ceb4be02cd3"/>
+<img width="550px;" src="https://github.com/user-attachments/assets/25e075d8-15f7-467d-a8bc-2b6ded30d182"/>
+<img width="550px;" src="https://github.com/user-attachments/assets/ba24b4b3-0f03-40ab-9417-b235d5c5ffbe"/>
+<img width="550px;" src="https://github.com/user-attachments/assets/6f851153-ea53-4627-a745-7d6d28bfa846"/>
+<img width="550px;" src="https://github.com/user-attachments/assets/002409ab-b518-4840-b539-f8e0c8962f5d"/>
 
 ## Table of Contents
 
