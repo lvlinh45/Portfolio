@@ -13,6 +13,8 @@ import { useState } from "react";
 import Footer from "./components/Footer";
 import ProjectDetails from "./components/ProjectDetails";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
+import ScrollToTop from "react-scroll-to-top";
+import { IoIosArrowUp } from "react-icons/io";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -61,6 +63,14 @@ function App() {
             <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
           )}
         </Body>
+        <ScrollToTop
+          smooth
+          style={{
+            width: "46px",
+            height: "46px",
+          }}
+          component={<IoIosArrowUp size={18} />}
+        />
       </Router>
     </ThemeProvider>
   );

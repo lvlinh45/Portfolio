@@ -6,6 +6,7 @@ export const Nav = styled.div`
   background-color: ${({ theme }) => theme.card_light};
   height: 80px;
   display: flex;
+  box-shadow: 1px 1px;
   align-items: center;
   justify-content: center;
   font-size: 1rem;

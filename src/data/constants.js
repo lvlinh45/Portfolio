@@ -157,6 +157,10 @@ export const skills = [
         name: "Wordpress ",
         image: "https://www.svgrepo.com/show/475696/wordpress-color.svg",
       },
+      {
+        name: "Vercel",
+        image: "https://karmanivero.us/assets/images/logo-vercel.png",
+      },
     ],
   },
 ];
