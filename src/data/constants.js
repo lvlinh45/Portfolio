@@ -10,7 +10,7 @@ export const Bio = {
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
   github: "https://github.com/lvlinh45",
   resume:
-    "https://drive.google.com/file/d/1BMMMJx6WLgxAZEsY2Nyf8bV4hEb6o5CC/view?usp=drive_link",
+    "https://drive.google.com/file/d/1Trr0CO1LKgsotZ4T5_cwTUCkHaKwbTHi/view?usp=drive_link",
   linkedin: "https://www.linkedin.com/in/linh-l%C6%B0%C6%A1ng-679ba9275/",
   twitter: "https://x.com/_VanLinh45",
   insta: "https://www.instagram.com/_lvlinh/",
@@ -63,6 +63,11 @@ export const skills = [
       {
         name: "tailwind",
         image: "https://static.cdnlogo.com/logos/t/58/tailwindcss.svg",
+      },
+      {
+        name: "styled-components",
+        image:
+          "https://images.velog.io/images/jongsunpark88/post/a95507d6-6278-40c4-aed5-8f0ac23edeb5/style300.png",
       },
     ],
   },
