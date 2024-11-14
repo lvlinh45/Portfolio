@@ -72,39 +72,93 @@ const TimelineSection = styled(motion.div)`
   gap: 12px;
 `;
 
+// Add a new animation variant for container animations
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const timelineVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
+const timelineItemVariants = {
+  hidden: { x: -50, opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: "easeOut",
+    },
+  },
+  hover: {
+    scale: 1.02,
+    transition: { duration: 0.2 },
+  },
+};
+
 const index = () => {
   return (
     <Container
       id="experience"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
     >
       <Wrapper>
-        <Title>Experience</Title>
-        <Desc>
+        <Title
+          as={motion.div}
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Experience
+        </Title>
+        <Desc
+          as={motion.div}
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
           My work experience as a software engineer and working on different
           companies and projects.
         </Desc>
-        <TimelineSection
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <TimelineSection variants={timelineVariants}>
           <Timeline>
             {experiences.map((experience, index) => (
               <TimelineItem
                 key={index}
                 as={motion.div}
-                initial={{ x: -50, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.2 }}
+                variants={timelineItemVariants}
+                initial="hidden"
+                whileInView="visible"
+                whileHover="hover"
+                transition={{
+                  delay: index * 0.3,
+                }}
               >
                 <TimelineSeparator>
-                  <TimelineDot variant="outlined" color="secondary" />
+                  <TimelineDot
+                    variant="outlined"
+                    color="secondary"
+                    component={motion.div}
+                    whileHover={{ scale: 1.2 }}
+                  />
                   {index !== experiences.length - 1 && (
                     <TimelineConnector style={{ background: "#854CE6" }} />
                   )}

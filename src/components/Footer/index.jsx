@@ -4,9 +4,8 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { Bio } from "../../data/constants";
-import { motion } from "framer-motion";
 
-const FooterContainer = styled(motion.div)`
+const FooterContainer = styled.div`
   width: 100%;
   padding: 2rem 0;
   display: flex;
@@ -14,7 +13,7 @@ const FooterContainer = styled(motion.div)`
   //background: linear-gradient(100.26deg, rgba(0, 102, 255, 0.05) 42.33%, rgba(150, 0, 225, 0.05) 127.07%);
 `;
 
-const FooterWrapper = styled(motion.footer)`
+const FooterWrapper = styled.footer`
   width: 100%;
   max-width: 1200px;
   display: flex;
@@ -25,13 +24,13 @@ const FooterWrapper = styled(motion.footer)`
   color: ${({ theme }) => theme.text_primary};
 `;
 
-const Logo = styled(motion.h1)`
+const Logo = styled.h1`
   font-weight: 600;
   font-size: 20px;
   color: ${({ theme }) => theme.primary};
 `;
 
-const Nav = styled(motion.nav)`
+const Nav = styled.nav`
   width: 100%;
   max-width: 800px;
   margin-top: 0.5rem;
@@ -61,7 +60,7 @@ const NavLink = styled.a`
   }
 `;
 
-const SocialMediaIcons = styled(motion.div)`
+const SocialMediaIcons = styled.div`
   display: flex;
   margin-top: 1rem;
 `;
@@ -77,7 +76,7 @@ const SocialMediaIcon = styled.a`
   }
 `;
 
-const Copyright = styled(motion.p)`
+const Copyright = styled.p`
   margin-top: 1.5rem;
   font-size: 0.9rem;
   color: ${({ theme }) => theme.soft2};
@@ -86,38 +85,17 @@ const Copyright = styled(motion.p)`
 
 function Footer() {
   return (
-    <FooterContainer
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
+    <FooterContainer>
       <FooterWrapper>
-        <Logo
-          as={motion.h1}
-          initial={{ y: -20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          Luong Van Linh
-        </Logo>
-        <Nav
-          as={motion.nav}
-          initial={{ y: -20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
+        <Logo>Luong Van Linh</Logo>
+        <Nav>
           <NavLink href="#about">About</NavLink>
           <NavLink href="#skills">Skills</NavLink>
           <NavLink href="#experience">Experience</NavLink>
           <NavLink href="#projects">Projects</NavLink>
           <NavLink href="#education">Education</NavLink>
         </Nav>
-        <SocialMediaIcons
-          as={motion.div}
-          initial={{ y: -20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
+        <SocialMediaIcons>
           <SocialMediaIcon href={Bio.facebook} target="display">
             <FacebookIcon />
           </SocialMediaIcon>
@@ -131,14 +109,7 @@ function Footer() {
             <InstagramIcon />
           </SocialMediaIcon>
         </SocialMediaIcons>
-        <Copyright
-          as={motion.p}
-          initial={{ y: -20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          &copy; 2024 Luong Van Linh. All rights reserved.
-        </Copyright>
+        <Copyright>&copy; 2024 Luong Van Linh. All rights reserved.</Copyright>
       </FooterWrapper>
     </FooterContainer>
   );
