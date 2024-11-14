@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { skills } from "../../data/constants";
+import { motion } from "framer-motion";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,7 +57,7 @@ const SkillsContainer = styled.div`
   justify-content: center;
 `;
 
-const Skill = styled.div`
+const Skill = styled(motion.div)`
   width: 100%;
   max-width: 500px;
   background: ${({ theme }) => theme.card};
@@ -90,7 +91,7 @@ const SkillList = styled.div`
   margin-bottom: 20px;
 `;
 
-const SkillItem = styled.div`
+const SkillItem = styled(motion.div)`
   font-size: 16px;
   font-weight: 400;
   color: ${({ theme }) => theme.text_primary + 80};
@@ -118,7 +119,13 @@ const SkillImage = styled.img`
 
 const Skills = () => {
   return (
-    <Container id="skills">
+    <Container
+      id="skills"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
       <Wrapper>
         <Title>Skills</Title>
         <Desc>
@@ -127,11 +134,27 @@ const Skills = () => {
         </Desc>
         <SkillsContainer>
           {skills.map((skill, index) => (
-            <Skill key={index}>
+            <Skill
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: index * 0.2 }}
+            >
               <SkillTitle>{skill.title}</SkillTitle>
               <SkillList>
                 {skill.skills.map((item, index) => (
-                  <SkillItem key={index}>
+                  <SkillItem
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    whileHover={{ scale: 1.1 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.2,
+                      delay: index * 0.05,
+                    }}
+                  >
                     <SkillImage src={item.image} />
                     <span>{item.name}</span>
                   </SkillItem>

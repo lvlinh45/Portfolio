@@ -8,8 +8,9 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import { education, experiences } from "../../data/constants";
 import EducationCard from "../Cards/EducationCard";
+import { motion } from "framer-motion";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,7 +23,7 @@ const Container = styled.div`
   }
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -37,7 +38,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Title = styled.div`
+const Title = styled(motion.div)`
   font-size: 42px;
   text-align: center;
   font-weight: 600;
@@ -49,7 +50,7 @@ const Title = styled.div`
   }
 `;
 
-const Desc = styled.div`
+const Desc = styled(motion.div)`
   font-size: 18px;
   text-align: center;
   max-width: 600px;
@@ -60,7 +61,7 @@ const Desc = styled.div`
   }
 `;
 
-const TimelineSection = styled.div`
+const TimelineSection = styled(motion.div)`
   width: 100%;
   max-width: 1000px;
   margin-top: 10px;
@@ -76,17 +77,42 @@ const TimelineSection = styled.div`
 
 const index = () => {
   return (
-    <Container id="education">
+    <Container
+      id="education"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <Wrapper>
-        <Title>Education</Title>
-        <Desc>
+        <Title
+          initial={{ y: -50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          Education
+        </Title>
+        <Desc
+          initial={{ y: -30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           My education has been a journey of self-discovery and growth. My
           educational details are as follows.
         </Desc>
-        <TimelineSection>
+        <TimelineSection
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
           <Timeline>
             {education.map((education, index) => (
-              <TimelineItem key={index}>
+              <TimelineItem
+                key={index}
+                as={motion.div}
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 + index * 0.2 }}
+              >
                 <TimelineContent sx={{ py: "12px", px: 2 }}>
                   <EducationCard education={education} />
                 </TimelineContent>

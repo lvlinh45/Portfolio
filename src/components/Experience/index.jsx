@@ -8,8 +8,9 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import { experiences } from "../../data/constants";
 import ExperienceCard from "../Cards/ExperienceCard";
+import { motion } from "framer-motion";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -60,7 +61,7 @@ const Desc = styled.div`
   }
 `;
 
-const TimelineSection = styled.div`
+const TimelineSection = styled(motion.div)`
   width: 100%;
   max-width: 1000px;
   margin-top: 10px;
@@ -73,17 +74,35 @@ const TimelineSection = styled.div`
 
 const index = () => {
   return (
-    <Container id="experience">
+    <Container
+      id="experience"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
       <Wrapper>
         <Title>Experience</Title>
         <Desc>
           My work experience as a software engineer and working on different
           companies and projects.
         </Desc>
-        <TimelineSection>
+        <TimelineSection
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <Timeline>
             {experiences.map((experience, index) => (
-              <TimelineItem key={index}>
+              <TimelineItem
+                key={index}
+                as={motion.div}
+                initial={{ x: -50, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.2 }}
+              >
                 <TimelineSeparator>
                   <TimelineDot variant="outlined" color="secondary" />
                   {index !== experiences.length - 1 && (

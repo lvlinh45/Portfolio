@@ -15,6 +15,8 @@ import ProjectDetails from "./components/ProjectDetails";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import ScrollToTop from "react-scroll-to-top";
 import { IoIosArrowUp } from "react-icons/io";
+import { AnimatePresence } from "framer-motion";
+import LoadingScreen from "./components/LoadingScreen";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -43,36 +45,42 @@ function App() {
   const [openModal, setOpenModal] = useState({ state: false, project: null });
   console.log(openModal);
   return (
-    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <Router>
-        <ProgressBar></ProgressBar>
-        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-        <Body>
-          <Hero />
-          <Wrapper>
-            <Skills />
-            <Experience />
-          </Wrapper>
-          <Projects openModal={openModal} setOpenModal={setOpenModal} />
-          <Wrapper>
-            <Education />
-            <Contact />
-          </Wrapper>
-          <Footer />
-          {openModal.state && (
-            <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
-          )}
-        </Body>
-        <ScrollToTop
-          smooth
-          style={{
-            width: "46px",
-            height: "46px",
-          }}
-          component={<IoIosArrowUp size={18} />}
-        />
-      </Router>
-    </ThemeProvider>
+    <AnimatePresence mode="wait">
+      <LoadingScreen />
+      <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+        <Router>
+          <ProgressBar></ProgressBar>
+          <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+          <Body>
+            <Hero />
+            <Wrapper>
+              <Skills />
+              <Experience />
+            </Wrapper>
+            <Projects openModal={openModal} setOpenModal={setOpenModal} />
+            <Wrapper>
+              <Education />
+              <Contact />
+            </Wrapper>
+            <Footer />
+            {openModal.state && (
+              <ProjectDetails
+                openModal={openModal}
+                setOpenModal={setOpenModal}
+              />
+            )}
+          </Body>
+          <ScrollToTop
+            smooth
+            style={{
+              width: "46px",
+              height: "46px",
+            }}
+            component={<IoIosArrowUp size={18} />}
+          />
+        </Router>
+      </ThemeProvider>
+    </AnimatePresence>
   );
 }
 
