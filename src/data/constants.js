@@ -22,9 +22,14 @@ export const skills = [
     title: "Frontend",
     skills: [
       {
-        name: "React Js",
+        name: "ReactJs",
         image:
           "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K",
+      },
+      {
+        name: "Typescript",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvJQAsTk8Cww88naAKE0Pfe5KLnIE3gLirzQ&s",
       },
       {
         name: "Redux",
@@ -77,6 +82,10 @@ export const skills = [
       {
         name: "PHP",
         image: "https://www.svgrepo.com/show/452088/php.svg",
+      },
+      {
+        name: "NodeJS",
+        image: "https://img.icons8.com/color/512/nodejs.png",
       },
       {
         name: "MySQL",
@@ -251,6 +260,19 @@ export const projects = [
     category: "web app",
     github: "https://github.com/lvlinh45/Movie",
     webapp: "https://lvlinh45.github.io/Movie/",
+  },
+  {
+    id: 2,
+    title: "Super Sport",
+    date: "Feb 2025 - March 2025",
+    description:
+      "Created a user-friendly e-commerce platform with product browsing, secure checkout, and multiple payment options. Includes account management, order tracking, and a responsive design for both desktop and mobile.",
+    image:
+      "https://res.cloudinary.com/dxb5onj6f/image/upload/zqln8dkfievylusqiyiv.jpg",
+    tags: ["ReactJS", "Typescript", "MUI", "SASS", "Bootstrap"],
+    category: "web app",
+    github: "https://github.com/lvlinh45/E-commerse",
+    webapp: "https://excomerse.netlify.app/",
   },
   {
     id: 0,
