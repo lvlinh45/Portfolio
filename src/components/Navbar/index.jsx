@@ -22,25 +22,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 const Navbar = ({ darkMode, setDarkMode }) => {
   console.log("TCL: Navbar -> darkMode", darkMode);
   const [isOpen, setIsOpen] = React.useState(false);
-  const mobileMenuRef = React.useRef();
   const theme = useTheme();
-
-  React.useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(event.target)
-      ) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
   return (
     <Nav>
       <NavbarContainer>
@@ -102,7 +84,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           </ThemeButton>
         </ButtonContainer>
         {isOpen && (
-          <MobileMenu ref={mobileMenuRef} isOpen={isOpen}>
+          <MobileMenu isOpen={isOpen}>
             <MobileLink
               href="#about"
               onClick={() => {

@@ -75,18 +75,8 @@ function App() {
             style={{
               width: "46px",
               height: "46px",
-              backgroundColor: darkMode ? "#171721" : "#fff",
-              borderRadius: "50%",
-              boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "8px",
-              border: `1px solid ${darkMode ? "#2d2d3b" : "#e0e0e0"}`,
             }}
-            component={
-              <IoIosArrowUp size={20} color={darkMode ? "#fff" : "#2d2d3b"} />
-            }
+            component={<IoIosArrowUp size={18} />}
           />
         </Router>
       </ThemeProvider>
