@@ -1,8 +1,8 @@
 export const Bio = {
   name: "Luong Van Linh",
   roles: [
-    "Front-end Developer",
     "Fullstack Developer",
+    "Front-end Developer",
     "UI/UX Designer",
     "Programmer",
   ],
@@ -149,7 +149,7 @@ export const experiences = [
   {
     id: 1,
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm0k551UCgE0ojH1Rx98Sy1FnkX0rF7zImVw&s",
-    role: "Front-end Developer Intern",
+    role: "Fullstack Developer Intern",
     company: "Gravity Global Vietnam",
     date: "Nov 2023 - Jan 2024",
     desc: "Acquire some skills in HTML, CSS, Javascript, Tailwind. At the same time, get familiar with Wordpress and PHP.",
