@@ -100,26 +100,6 @@ export const skills = [
     ],
   },
   {
-    title: "Android",
-    skills: [
-      {
-        name: "Java",
-        image:
-          "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
-      },
-      {
-        name: "XML",
-        image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBMw6_RdwKQ9bDFfnKDX1iwMl4bVJEvd9PP53XuIw&s",
-      },
-      {
-        name: "Android Studio",
-        image:
-          "https://developer.android.com/static/studio/images/new-studio-logo-1_1920.png",
-      },
-    ],
-  },
-  {
     title: "Others",
     skills: [
       {
@@ -201,30 +181,35 @@ export const education = [
 
 export const projects = [
   {
-    id: 0,
-    title: "Simple Movie",
-    date: "Oct 12, 2024 - Oct 15, 2024",
+    id: 10,
+    title: "EcoGuide",
+    date: "Dec 2024 - Mar 2025",
     description:
-      "Develop a Web application using ReactJS to present the content of movies",
-    image:
-      "https://res.cloudinary.com/dxb5onj6f/image/upload/v1730993958/z6010242176222_5d60a7a08ca54ea9eaa60d436ed049e5_eibxt7.jpg",
-    tags: ["React Js", "Tailwind"],
+      "A comprehensive web application for travelers to discover and book local tour guides with real-time map integration, live chat, and a seamless booking experience. Built with a focus on ecology and sustainable tourism.",
+    image: "/ecoguide.png",
+    tags: [
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS 4",
+      "Redux Toolkit",
+      "React Query",
+      "Leaflet",
+    ],
     category: "web app",
-    github: "https://github.com/lvlinh45/REACT-SIMPLE-MOVIE",
-    webapp: "https://simplemovie-tawny.vercel.app/",
+    github: "https://github.com/lvlinh45",
+    webapp: "https://ecoguide.vn/",
   },
   {
-    id: 2,
-    title: "GreenWhales",
-    date: "Jun 2024 - Aug 2024",
+    id: 11,
+    title: "Excommerse",
+    date: "Jan 2025 - Feb 2025",
     description:
-      "Develop website for the company as required using Wordpress and Hostinger, and participate in the design process.",
-    image:
-      "https://res.cloudinary.com/dxb5onj6f/image/upload/v1730993959/z6010243213229_86cad10356ee4d05d6c04f4da4389107_cpi9fd.jpg",
-    tags: ["WordPress", "Hostinger"],
+      "A modern, high-performance e-commerce platform built with TypeScript, featuring a sophisticated product gallery and optimized user shopping experience. Optimized for speed and scalability.",
+    image: "/commerse.png",
+    tags: ["TypeScript", "React", "Styled-components"],
     category: "web app",
-    // github: "https://github.com/lvlinh45/Movie",
-    webapp: "https://greenwhaleventures.com/",
+    github: "https://github.com/lvlinh45/E-commerse",
+    webapp: "https://excomerse.netlify.app/",
   },
   {
     id: 1,
@@ -238,30 +223,6 @@ export const projects = [
     category: "web app",
     github: "https://github.com/lvlinh45/Elearning",
     webapp: "https://lvlinh45.github.io/Elearning/",
-  },
-  {
-    id: 2,
-    title: "Movies",
-    date: "Oct 2022 - Nov 2022",
-    description:
-      "In this project, I develop a movie website with unique features and a beautiful interface.",
-    image:
-      "https://res.cloudinary.com/dxb5onj6f/image/upload/v1730993959/z6010247865009_97131f8eb2b179ddd13d61e46030a3f5_orztlr.jpg",
-    tags: ["HTML", "CSS", "Javascript", "SASS", "Bootstrap"],
-    category: "web app",
-    github: "https://github.com/lvlinh45/Movie",
-    webapp: "https://lvlinh45.github.io/Movie/",
-  },
-  {
-    id: 0,
-    title: "Movies-app",
-    date: "May 2024 - Jun 2024",
-    description: "Final project of Mobile Programming course.",
-    image:
-      "https://camo.githubusercontent.com/2638eac28ea77d23bff92cab24ef98c99cf7005d299df63ae1e1447e97d1ef6f/68747470733a2f2f7374617469632e79626f782e766e2f323031382f322f32362f31653937613234652d316164632d313165382d393735382d3265393935613961333330322e676966",
-    tags: ["Java", "Firebase", "Android"],
-    category: "android app",
-    github: "https://github.com/lvlinh45/Movies-app",
   },
 ];
 
