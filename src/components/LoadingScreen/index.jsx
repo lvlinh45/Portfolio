@@ -91,7 +91,7 @@ const LoadingScreen = () => {
         <Subtitle>
           <Typewriter
             options={{
-              strings: ["Front-end Developer"],
+              strings: ["Fullstack Developer"],
               autoStart: true,
               loop: false,
               delay: 50,

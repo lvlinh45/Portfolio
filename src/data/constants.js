@@ -2,7 +2,6 @@ export const Bio = {
   name: "Luong Van Linh",
   roles: [
     "Fullstack Developer",
-    "Front-end Developer",
     "UI/UX Designer",
     "Programmer",
   ],
@@ -228,7 +227,7 @@ export const projects = [
 
 export const TimeLineData = [
   { year: 2021, text: "Started my journey" },
-  { year: 2021 - 2023, text: "Learning to become Front-end Developer" },
+  { year: 2021 - 2023, text: "Learning to become Fullstack Developer" },
   { year: 2023, text: "Intern at Gravity Global" },
   { year: 2024, text: "Continue my jouney" },
 ];
