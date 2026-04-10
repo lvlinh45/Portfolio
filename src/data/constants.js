@@ -9,7 +9,7 @@ export const Bio = {
     "I am a Computer Science Master's student and Fullstack Developer dedicated to building scalable, high-quality web applications. I focus on solving complex problems and delivering user-centric solutions through modern technology.",
   github: "https://github.com/lvlinh45",
   resume:
-    "https://drive.google.com/file/d/1Trr0CO1LKgsotZ4T5_cwTUCkHaKwbTHi/view?usp=drive_link",
+    "https://drive.google.com/file/d/1w9nhJZF0rpC2S3BfcydS9au-LhqxF4g9/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/linh-l%C6%B0%C6%A1ng-679ba9275/",
   twitter: "https://x.com/_VanLinh45",
   insta: "https://www.instagram.com/_lvlinh/",
