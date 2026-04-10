@@ -21,7 +21,7 @@ export const skills = [
     title: "Frontend",
     skills: [
       {
-        name: "React Js",
+        name: "ReactJS",
         image:
           "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K",
       },
@@ -60,7 +60,7 @@ export const skills = [
         image: "https://www.vectorlogo.zone/logos/mui/mui-icon.svg",
       },
       {
-        name: "tailwind",
+        name: "Tailwind CSS",
         image: "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg",
       },
       {
@@ -169,18 +169,17 @@ export const experiences = [
     role: "Fullstack Developer Intern",
     company: "Gravity Global Vietnam",
     date: "Nov 2023 - Jan 2024",
-    desc: "Acquire some skills in HTML, CSS, Javascript, Tailwind. At the same time, get familiar with Wordpress and PHP.",
-    skills: ["HTML", "CSS", "JavaScript", "Tailwind"],
+    desc: "Acquire some skills in HTML, CSS, Javascript, Tailwind CSS. At the same time, get familiar with Wordpress and PHP.",
+    skills: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
   },
   {
     id: 2,
-    img: "https://greenwhaleventures.com/wp-content/uploads/2024/06/Green-Whale-logo.png",
-    role: "Freelancer",
-    company: "Greenwhaleventures",
-    date: "Jun 2024 - Aug 2024",
-    desc: "Use WordPress to build an environmental website for the company while also participating in the design process for the project.",
-    doc: "https://media.licdn.com/dms/image/D4D22AQGzSpgFaR4hsQ/feedshare-shrink_800/0/1684079632872?e=1687996800&v=beta&t=i0xWn_k32Oj9SxKfc6rARSbOghXD9Ge6WyEb2p2vvrc",
-    skills: ["WordPress"],
+    img: "https://media.licdn.com/dms/image/v2/C560BAQECQDVWLd_lqQ/company-logo_200_200/company-logo_200_200/0/1630564510365/infodation_logo?e=2147483647&v=beta&t=qyGkMwHWcehdgGjb_4UTBem_asvt4bODYfCqMxkOpfU",
+    role: "Front-End Developer",
+    company: "INFODATION",
+    date: "Nov 2024 - Apr 2025",
+    desc: "Worked as a Front-end Developer at Infodation, participating in projects to develop and optimize user interfaces.",
+    skills: ["ReactJS", "TypeScript", "Tailwind CSS", "Redux", "MUI"],
   },
 ];
 
@@ -214,7 +213,7 @@ export const projects = [
       "A comprehensive web application for travelers to discover and book local tour guides with real-time map integration, live chat, and a seamless booking experience. Built with a focus on ecology and sustainable tourism.",
     image: "/ecoguide.png",
     tags: [
-      "React 19",
+      "ReactJS 19",
       "TypeScript",
       "Tailwind CSS 4",
       "Redux Toolkit",
@@ -232,7 +231,7 @@ export const projects = [
     description:
       "A modern, high-performance e-commerce platform built with TypeScript, featuring a sophisticated product gallery and optimized user shopping experience. Optimized for speed and scalability.",
     image: "/commerse.png",
-    tags: ["TypeScript", "React", "Styled-components"],
+    tags: ["TypeScript", "ReactJS", "Styled-components"],
     category: "web app",
     github: "https://github.com/lvlinh45/E-commerse",
     webapp: "https://excomerse.netlify.app/",
