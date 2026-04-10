@@ -109,7 +109,9 @@ function Footer() {
             <InstagramIcon />
           </SocialMediaIcon>
         </SocialMediaIcons>
-        <Copyright>&copy; 2024 Luong Van Linh. All rights reserved.</Copyright>
+        <Copyright>
+          &copy; {new Date().getFullYear()} Luong Van Linh. All rights reserved.
+        </Copyright>
       </FooterWrapper>
     </FooterContainer>
   );

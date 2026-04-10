@@ -6,7 +6,7 @@ export const Bio = {
     "Web Developer",
   ],
   description:
-    "I am a passionate Computer Science Master's student at Hue University, recently graduated with a Bachelor's degree in Information Technology with a strong GPA of 3.49/4. My journey as a Fullstack Developer has been driven by a constant desire to learn and implement modern web technologies to solve real-world problems. I am dedicated to building high-quality, scalable, and user-centric applications while continuously expanding my technical expertise.",
+    "I am a Computer Science Master's student and Fullstack Developer dedicated to building scalable, high-quality web applications. I focus on solving complex problems and delivering user-centric solutions through modern technology.",
   github: "https://github.com/lvlinh45",
   resume:
     "https://drive.google.com/file/d/1Trr0CO1LKgsotZ4T5_cwTUCkHaKwbTHi/view?usp=drive_link",
@@ -256,5 +256,7 @@ export const TimeLineData = [
   { year: 2021, text: "Started my journey" },
   { year: 2021 - 2023, text: "Learning to become Fullstack Developer" },
   { year: 2023, text: "Intern at Gravity Global" },
-  { year: 2024, text: "Continue my jouney" },
+  { year: 2024, text: "Continues journey and Freelancing" },
+  { year: 2025, text: "Graduated and Started Master's Degree" },
+  { year: 2026, text: "Master's student at Hue University" },
 ];
