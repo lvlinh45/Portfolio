@@ -15,7 +15,7 @@ const Projects = ({ openModal, setOpenModal }) => {
       <Wrapper>
         <Title>Projects</Title>
         <Desc>
-          I have worked on a wide range of projects, specializing in Fullstack
+          I have worked on a wide range of projects, specializing in Full-Stack
           web applications. Here are some of my projects.
         </Desc>
         <CardContainer>

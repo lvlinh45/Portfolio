@@ -1,12 +1,12 @@
 export const Bio = {
   name: "Luong Van Linh",
   roles: [
-    "Fullstack Developer",
+    "Full-Stack Developer",
     "UI/UX Designer",
     "Web Developer",
   ],
   description:
-    "I am a Computer Science Master's student and Fullstack Developer dedicated to building scalable, high-quality web applications. I focus on solving complex problems and delivering user-centric solutions through modern technology.",
+    "I am a Computer Science Master's student and Full-Stack Developer dedicated to building scalable, high-quality web applications. I focus on solving complex problems and delivering user-centric solutions through modern technology.",
   github: "https://github.com/lvlinh45",
   resume:
     "https://drive.google.com/file/d/1w9nhJZF0rpC2S3BfcydS9au-LhqxF4g9/view?usp=sharing",
@@ -184,7 +184,7 @@ export const experiences = [
   {
     id: 1,
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm0k551UCgE0ojH1Rx98Sy1FnkX0rF7zImVw&s",
-    role: "Intern Fullstack Developer",
+    role: "Intern Full-Stack Developer",
     company: "Gravity Global Vietnam",
     date: "Nov 2023 - Jan 2024",
     desc: "Acquire some skills in HTML, CSS, Javascript, Tailwind CSS. At the same time, get familiar with Wordpress and PHP.",
@@ -266,7 +266,7 @@ export const projects = [
 
 export const TimeLineData = [
   { year: 2021, text: "Started my journey" },
-  { year: 2021 - 2023, text: "Learning to become Fullstack Developer" },
+  { year: 2021 - 2023, text: "Learning to become Full-Stack Developer" },
   { year: 2023, text: "Intern at Gravity Global" },
   { year: 2024, text: "Continues journey and Freelancing" },
   { year: 2025, text: "Graduated and Started Master's Degree" },
