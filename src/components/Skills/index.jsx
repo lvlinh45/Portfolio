@@ -129,8 +129,8 @@ const Skills = () => {
       <Wrapper>
         <Title>Skills</Title>
         <Desc>
-          Here are some skills that I practiced during my four years of
-          university.
+          Here are some of my skills on which I have been working on for the
+          past 5 years, including my university and professional experience.
         </Desc>
         <SkillsContainer>
           {skills.map((skill, index) => (
