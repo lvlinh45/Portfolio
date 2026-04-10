@@ -6,7 +6,7 @@ export const Bio = {
     "Web Developer",
   ],
   description:
-    "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
+    "I am a passionate Computer Science Master's student at Hue University, recently graduated with a Bachelor's degree in Information Technology with a strong GPA of 3.49/4. My journey as a Fullstack Developer has been driven by a constant desire to learn and implement modern web technologies to solve real-world problems. I am dedicated to building high-quality, scalable, and user-centric applications while continuously expanding my technical expertise.",
   github: "https://github.com/lvlinh45",
   resume:
     "https://drive.google.com/file/d/1Trr0CO1LKgsotZ4T5_cwTUCkHaKwbTHi/view?usp=drive_link",
@@ -187,12 +187,21 @@ export const experiences = [
 export const education = [
   {
     id: 0,
+    img: "https://upload.wikimedia.org/wikipedia/vi/thumb/e/e8/Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Hu%E1%BA%BF.svg/960px-Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Hu%E1%BA%BF.svg.png",
+    school: "Hue University",
+    date: "Sep 2025 - Present",
+    grade: "Currently Studying",
+    desc: "Currently pursuing a Master's degree in Computer Science, focusing on advanced topics in Artificial Intelligence and Software Engineering.",
+    degree: "Master of Computer Science",
+  },
+  {
+    id: 1,
     img: "https://inkythuatso.com/uploads/thumbnails/800/2021/12/logo-dai-hoc-nha-trang-inkythuatso-1-02-14-45-38.jpg",
     school: "Nha Trang University",
-    date: "Sep 2021 - Sep 2025",
-    grade: "Overall 3.45 / 4",
-    desc: "I am currently pursuing a Bachelor's degree in Information and Technology at Nha Trang University. I have completed 4 semesters and have a GPA of 3.45 / 4. I have taken courses in Data Structures, Algorithms, Object-Oriented Programming, Database Management Systems, Operating Systems, and Computer Networks, among others. I am also Deputy Secretary at the Youth Union - Association of Faculty of Information Technology. And is a member of the Information Technology Club of Nha Trang University, where I am learning and working on exciting projects with a team of talented people.",
-    degree: "Bachelor of Technology (expected)",
+    date: "Sep 2021 - Jul 2025",
+    grade: "3.49 / 4",
+    desc: "Graduated with a Bachelor's degree in Information Technology. During my time at Nha Trang University, I maintained a strong academic record with a GPA of 3.49/4. I actively served as Deputy Secretary of the Youth Union - Faculty of Information Technology and was a core member of the IT Club, where I led several web development initiatives.",
+    degree: "Bachelor of Information Technology",
   },
 ];
 
