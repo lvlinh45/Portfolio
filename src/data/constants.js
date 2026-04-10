@@ -164,13 +164,13 @@ export const skills = [
 
 export const experiences = [
   {
-    id: 1,
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm0k551UCgE0ojH1Rx98Sy1FnkX0rF7zImVw&s",
-    role: "Fullstack Developer Intern",
-    company: "Gravity Global Vietnam",
-    date: "Nov 2023 - Jan 2024",
-    desc: "Acquire some skills in HTML, CSS, Javascript, Tailwind CSS. At the same time, get familiar with Wordpress and PHP.",
-    skills: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
+    id: 0,
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnpeBILEBdm-NWyvSQ9rq_gvSddUdPzXGBeQ&s",
+    role: "Web Developer",
+    company: "Widosoft",
+    date: "Aug 2025 - Present",
+    desc: "Currently working as a Web Developer, specializing in building and maintaining robust web applications using PHP and Laravel. My role involves database management using MySQL and ensuring seamless deployment environments through Docker.",
+    skills: ["PHP", "Laravel", "MySQL", "Docker"],
   },
   {
     id: 2,
@@ -180,6 +180,15 @@ export const experiences = [
     date: "Nov 2024 - Apr 2025",
     desc: "Worked as a Front-end Developer at Infodation, participating in projects to develop and optimize user interfaces.",
     skills: ["ReactJS", "TypeScript", "Tailwind CSS", "Redux", "MUI"],
+  },
+  {
+    id: 1,
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm0k551UCgE0ojH1Rx98Sy1FnkX0rF7zImVw&s",
+    role: "Fullstack Developer Intern",
+    company: "Gravity Global Vietnam",
+    date: "Nov 2023 - Jan 2024",
+    desc: "Acquire some skills in HTML, CSS, Javascript, Tailwind CSS. At the same time, get familiar with Wordpress and PHP.",
+    skills: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
   },
 ];
 
