@@ -58,8 +58,8 @@ function App() {
               <Education />
               {/* <Skills /> */}
               <Experience />
+              <Projects openModal={openModal} setOpenModal={setOpenModal} />
             </Wrapper>
-            <Projects openModal={openModal} setOpenModal={setOpenModal} />
             <Publications />
             <Wrapper>
               <Contact />

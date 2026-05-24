@@ -1,34 +1,49 @@
-import React from "react";
 import {
   Container,
-  Wrapper,
-  Title,
-  Desc,
-  CardContainer,
+  Header,
+  ProjectItem,
+  Year,
+  Details,
+  ProjectTitle,
+  ProjectDesc,
+  Tags,
+  Tag,
+  Links,
+  GithubButton,
+  DemoButton,
 } from "./ProjectsStyle";
-import ProjectCard from "../Cards/ProjectCards";
 import { projects } from "../../data/constants";
 
-const Projects = ({ openModal, setOpenModal }) => {
+const Projects = () => {
   return (
     <Container id="projects">
-      <Wrapper>
-        <Title>Projects</Title>
-        <Desc>
-          I have worked on a wide range of projects, specializing in Full-Stack
-          web applications. Here are some of my projects.
-        </Desc>
-        <CardContainer>
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              project={project}
-              openModal={openModal}
-              setOpenModal={setOpenModal}
-            />
-          ))}
-        </CardContainer>
-      </Wrapper>
+      <Header>Projects</Header>
+      {projects.map((project, index) => (
+        <ProjectItem key={index}>
+          <Year>{project.date}</Year>
+          <Details>
+            <ProjectTitle>{project.title}</ProjectTitle>
+            <ProjectDesc>{project.description}</ProjectDesc>
+            <Tags>
+              {project.tags.map((tag, idx) => (
+                <Tag key={idx}>{tag}</Tag>
+              ))}
+            </Tags>
+            <Links>
+              {project.github && (
+                <GithubButton href={project.github} target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </GithubButton>
+              )}
+              {project.webapp && (
+                <DemoButton href={project.webapp} target="_blank" rel="noopener noreferrer">
+                  View Website
+                </DemoButton>
+              )}
+            </Links>
+          </Details>
+        </ProjectItem>
+      ))}
     </Container>
   );
 };
