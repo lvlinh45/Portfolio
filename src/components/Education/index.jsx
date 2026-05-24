@@ -5,11 +5,14 @@ import { education } from "../../data/constants";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 30px 20px 60px 20px;
+  padding: 30px 0px 60px 0px;
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
   color: ${({ theme }) => theme.text_primary};
+  @media (max-width: 960px) {
+    padding: 30px 20px 30px 20px;
+  }
 `;
 
 const Header = styled.h2`
