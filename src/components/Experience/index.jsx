@@ -5,7 +5,7 @@ import { experiences } from "../../data/constants";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 60px 20px;
+  padding: 30px 20px 60px 20px;
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;

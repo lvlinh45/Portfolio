@@ -26,19 +26,25 @@ const Body = styled.div`
   overflow-x: hidden;
 `;
 
-const Wrapper = styled.div`
+const WrapperOne = styled.div`
   background: linear-gradient(
       38.73deg,
-      rgba(204, 0, 187, 0.15) 0%,
+      rgba(204, 0, 187, 0.12) 0%,
       rgba(201, 32, 184, 0) 50%
     ),
     linear-gradient(
       141.27deg,
       rgba(0, 70, 209, 0) 50%,
-      rgba(0, 70, 209, 0.15) 100%
+      rgba(0, 70, 209, 0.12) 100%
     );
   width: 100%;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%);
+`;
+
+const WrapperTwo = styled.div`
+  background-color: ${({ theme }) => theme.bgLight};
+  width: 100%;
+  border-top: 1px solid ${({ theme }) => theme.primary + "10"};
+  border-bottom: 1px solid ${({ theme }) => theme.primary + "10"};
 `;
 
 function App() {
@@ -54,16 +60,21 @@ function App() {
           <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
           <Body>
             <Hero />
-            <Wrapper>
+            <WrapperOne>
               <Education />
-              {/* <Skills /> */}
+            </WrapperOne>
+            <WrapperTwo>
               <Experience />
+            </WrapperTwo>
+            <WrapperOne>
               <Projects openModal={openModal} setOpenModal={setOpenModal} />
-            </Wrapper>
-            <Publications />
-            <Wrapper>
+            </WrapperOne>
+            <WrapperTwo>
+              <Publications />
+            </WrapperTwo>
+            {/* <WrapperOne>
               <Contact />
-            </Wrapper>
+            </WrapperOne> */}
             <Footer />
             {openModal.state && (
               <ProjectDetails

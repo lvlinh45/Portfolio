@@ -78,11 +78,10 @@ const Navbar = ({ darkMode, setDarkMode }) => {
         </MobileIcon>
         <NavItems>
           <NavLink href="#about">About</NavLink>
-          {/* <NavLink href="#skills">Skills</NavLink> */}
+          <NavLink href="#education">Education</NavLink>
           <NavLink href="#experience">Experience</NavLink>
           <NavLink href="#projects">Projects</NavLink>
           <NavLink href="#publications">Publications</NavLink>
-          <NavLink href="#education">Education</NavLink>
         </NavItems>
         <ButtonContainer>
           <GitHubButton href={Bio.github} target="_blank">
@@ -112,14 +111,14 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             >
               About
             </MobileLink>
-            {/* <MobileLink
-              href="#skills"
+            <MobileLink
+              href="#education"
               onClick={() => {
                 setIsOpen(!isOpen);
               }}
             >
-              Skills
-            </MobileLink> */}
+              Education
+            </MobileLink>
             <MobileLink
               href="#experience"
               onClick={() => {
@@ -143,14 +142,6 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               }}
             >
               Publications
-            </MobileLink>
-            <MobileLink
-              href="#education"
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-            >
-              Education
             </MobileLink>
             <GitHubButton
               style={{

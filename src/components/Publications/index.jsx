@@ -1,174 +1,152 @@
 import React from "react";
 import styled from "styled-components";
-import Timeline from "@mui/lab/Timeline";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineConnector from "@mui/lab/TimelineConnector";
-import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineDot from "@mui/lab/TimelineDot";
 import { publications } from "../../data/constants";
-import PublicationCard from "../Cards/PublicationCard";
-import { motion } from "framer-motion";
 
-const Container = styled(motion.div)`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding: 30px 20px 60px 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: ${({ theme }) => theme.text_primary};
+`;
+
+const Header = styled.h2`
+  color: #306ee8;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-align: left;
   position: relative;
-  z-index: 1;
-  align-items: center;
-  padding: 0px 0px 80px 0px;
-  @media (max-width: 960px) {
-    padding: 0px;
+  
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #306ee8;
+    border-radius: 2px;
   }
 `;
 
-const Wrapper = styled.div`
-  position: relative;
+const PublicationItem = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1350px;
-  padding: 0 0 80px 0;
-  gap: 12px;
-  @media (max-width: 960px) {
+  margin-bottom: 30px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
 
-const Title = styled.div`
-  font-size: 42px;
-  text-align: center;
+const Year = styled.div`
+  width: 200px;
+  font-size: 16px;
   font-weight: 600;
-  margin-top: 20px;
   color: ${({ theme }) => theme.text_primary};
+  flex-shrink: 0;
   @media (max-width: 768px) {
-    margin-top: 12px;
-    font-size: 32px;
+    margin-bottom: 10px;
   }
 `;
 
-const Desc = styled.div`
-  font-size: 18px;
-  text-align: center;
-  max-width: 600px;
-  color: ${({ theme }) => theme.text_secondary};
-  @media (max-width: 768px) {
-    margin-top: 12px;
-    font-size: 16px;
-  }
-`;
-
-const TimelineSection = styled(motion.div)`
-  width: 100%;
-  max-width: 1000px;
-  margin-top: 10px;
+const Details = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
+  gap: 8px;
 `;
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 1,
-      staggerChildren: 0.3,
-    },
-  },
-};
+const PubTitle = styled.div`
+  font-size: 18px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.text_primary};
+  line-height: 1.4;
+`;
 
-const timelineVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  },
-};
+const PubTranslatedTitle = styled.div`
+  font-size: 15px;
+  font-weight: 600;
+  font-style: italic;
+  color: ${({ theme }) => theme.text_secondary};
+  line-height: 1.4;
+`;
 
-const timelineItemVariants = {
-  hidden: { x: -50, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 1,
-      ease: "easeOut",
-    },
-  },
-  hover: {
-    scale: 1.02,
-    transition: { duration: 0.2 },
-  },
-};
+const PubMeta = styled.div`
+  font-size: 14px;
+  color: ${({ theme }) => theme.text_secondary};
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+  line-height: 1.5;
+`;
+
+const MetaItem = styled.div`
+  span {
+    font-weight: 600;
+    color: ${({ theme }) => theme.text_primary};
+  }
+`;
+
+const Links = styled.div`
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+`;
+
+const DemoButton = styled.a`
+  font-size: 14px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.white || "#ffffff"};
+  background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
+  padding: 7px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 10px rgba(133, 76, 230, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(133, 76, 230, 0.6);
+    filter: brightness(1.1);
+  }
+`;
 
 const Publications = () => {
   return (
-    <Container
-      id="publications"
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-    >
-      <Wrapper>
-        <Title
-          as={motion.div}
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          Publications
-        </Title>
-        <Desc
-          as={motion.div}
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          My academic and professional publications.
-        </Desc>
-        <TimelineSection variants={timelineVariants}>
-          <Timeline>
-            {publications.map((publication, index) => (
-              <TimelineItem
-                key={index}
-                as={motion.div}
-                variants={timelineItemVariants}
-                initial="hidden"
-                whileInView="visible"
-                whileHover="hover"
-                transition={{
-                  delay: index * 0.3,
-                }}
-              >
-                <TimelineSeparator>
-                  <TimelineDot
-                    variant="outlined"
-                    color="secondary"
-                    component={motion.div}
-                    whileHover={{ scale: 1.2 }}
-                  />
-                  {index !== publications.length - 1 && (
-                    <TimelineConnector style={{ background: "#854CE6" }} />
-                  )}
-                </TimelineSeparator>
-                <TimelineContent sx={{ py: "12px", px: 2 }}>
-                  <PublicationCard publication={publication} />
-                </TimelineContent>
-              </TimelineItem>
-            ))}
-          </Timeline>
-        </TimelineSection>
-      </Wrapper>
+    <Container id="publications">
+      <Header>Publications</Header>
+      {publications.map((pub, index) => (
+        <PublicationItem key={index}>
+          <Year>{pub.date} | {pub.type}</Year>
+          <Details>
+            <PubTitle>{pub.title}</PubTitle>
+            {/* <PubTranslatedTitle>Translated Title: {pub.translatedTitle}</PubTranslatedTitle> */}
+            <PubMeta>
+              <MetaItem><span>Conference:</span> {pub.conference}</MetaItem>
+              <MetaItem><span>Role:</span> {pub.role}</MetaItem>
+              <MetaItem><span>ISBN:</span> {pub.isbn}</MetaItem>
+              <MetaItem><span>Contributors:</span> {pub.contributors}</MetaItem>
+            </PubMeta>
+            {pub.url && (
+              <Links>
+                <DemoButton href={pub.url} target="_blank" rel="noopener noreferrer">
+                  View Publication
+                </DemoButton>
+              </Links>
+            )}
+          </Details>
+        </PublicationItem>
+      ))}
     </Container>
   );
 };

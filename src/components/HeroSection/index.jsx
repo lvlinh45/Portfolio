@@ -9,12 +9,12 @@ export const HeroContainer = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  padding: 80px 30px;
+  padding: 80px 20px 60px 20px;
   @media (max-width: 960px) {
-    padding: 66px 16px;
+    padding: 66px 16px 50px 16px;
   }
-  @media (max-width: 640) {
-    padding: 32px 16px;
+  @media (max-width: 640px) {
+    padding: 32px 16px 30px 16px;
   }
   z-index: 1;
 
@@ -50,7 +50,7 @@ const HeroInnerContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1000px;
 
   @media (max-width: 960px) {
     flex-direction: column;
