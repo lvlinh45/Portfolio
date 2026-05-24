@@ -35,6 +35,36 @@ const Header = styled.h2`
   }
 `;
 
+const OrcidContainer = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: ${({ theme }) => theme.card};
+  border: 1px solid #a6e22e;
+  border-radius: 20px;
+  padding: 6px 14px;
+  color: ${({ theme }) => theme.text_primary};
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  align-self: flex-start;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(166, 226, 46, 0.08);
+  
+  &:hover {
+    background: #a6e22e10;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(166, 226, 46, 0.25);
+  }
+`;
+
+const OrcidIcon = styled.img`
+  width: 16px;
+  height: 16px;
+`;
+
 const PublicationItem = styled.div`
   display: flex;
   margin-bottom: 30px;
@@ -128,6 +158,10 @@ const Publications = () => {
   return (
     <Container id="publications">
       <Header>Publications</Header>
+      <OrcidContainer href="https://orcid.org/0009-0004-8961-4507" target="_blank" rel="noopener noreferrer">
+        <OrcidIcon src="https://orcid.org/assets/vectors/orcid.logo.icon.svg" alt="ORCID" />
+        <span>ORCID: 0009-0004-8961-4507</span>
+      </OrcidContainer>
       {publications.map((pub, index) => (
         <PublicationItem key={index}>
           <Year>{pub.date} | {pub.type}</Year>
