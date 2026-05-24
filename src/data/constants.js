@@ -214,7 +214,7 @@ export const projects = [
   {
     id: 10,
     title: "EcoGuide",
-    date: "Dec 2024 - Mar 2025",
+    date: "Dec 2024 - Jun 2026",
     description:
       "A comprehensive web application for travelers to discover and book local tour guides with real-time map integration, live chat, and a seamless booking experience. Built with a focus on ecology and sustainable tourism.",
     image: "/ecoguide.png",
@@ -272,18 +272,6 @@ export const TimeLineData = [
 
 export const publications = [
   {
-    id: 0,
-    title: "XÂY DỰNG ỨNG DỤNG HỖ TRỢ CÔNG TÁC ĐIỂM DANH SỰ KIỆN VÀ ĐÁNH GIÁ ĐIỂM RÈN LUYỆN SINH VIÊN KHOA CÔNG NGHỆ THÔNG TIN, TRƯỜNG ĐẠI HỌC NHA TRANG",
-    translatedTitle: "Developing an Application for Event Attendance Management and Student Training Point Assessment at the Faculty of Information Technology, Nha Trang University",
-    conference: "ICT2025. Information and Communication Technology",
-    date: "2025-07",
-    type: "Conference paper",
-    role: "Software, Writing - original draft",
-    isbn: "978-604-357-397-8",
-    contributors: "Luong Van Linh, Nguyen Thi Huong Ly",
-    url: "https://ebook365.vn/ict2025-information-and-communication-technology-ky-yeu-hoi-thao-khoa-hoc-cong-nghe-thong-tin-va-truyen-thong-nam-2025-lam-dong-thang-7-nam-2025-b1258.html"
-  },
-  {
     id: 1,
     title: "PHÁT HIỆN BUỒN NGỦ KHI LÁI XE THEO THỜI GIAN THỰC DỰA TRÊN ĐIỂM MỐC KHUÔN MẶT VÀ BI-LSTM VỚI HIỆU CHUẨN THÍCH ỨNG",
     translatedTitle: "Real-time Driver Drowsiness Detection Based on Facial Landmarks and Bi-LSTM with Adaptive Calibration",
@@ -294,5 +282,17 @@ export const publications = [
     isbn: "xxx-xxx-xxx-xxx-x",
     contributors: "Luong Van Linh, Nguyen Thi Huong Ly",
     url: "#"
+  },
+  {
+    id: 0,
+    title: "XÂY DỰNG ỨNG DỤNG HỖ TRỢ CÔNG TÁC ĐIỂM DANH SỰ KIỆN VÀ ĐÁNH GIÁ ĐIỂM RÈN LUYỆN SINH VIÊN KHOA CÔNG NGHỆ THÔNG TIN, TRƯỜNG ĐẠI HỌC NHA TRANG",
+    translatedTitle: "Developing an Application for Event Attendance Management and Student Training Point Assessment at the Faculty of Information Technology, Nha Trang University",
+    conference: "ICT2025. Information and Communication Technology",
+    date: "2025-07",
+    type: "Conference paper",
+    role: "Software, Writing - original draft",
+    isbn: "978-604-357-397-8",
+    contributors: "Luong Van Linh, Nguyen Thi Huong Ly",
+    url: "https://ebook365.vn/ict2025-information-and-communication-technology-ky-yeu-hoi-thao-khoa-hoc-cong-nghe-thong-tin-va-truyen-thong-nam-2025-lam-dong-thang-7-nam-2025-b1258.html"
   }
 ];
