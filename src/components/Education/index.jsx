@@ -5,7 +5,7 @@ import { education } from "../../data/constants";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 40px 20px;
+  padding: 60px 20px;
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
@@ -14,10 +14,22 @@ const Container = styled.div`
 
 const Header = styled.h2`
   color: #306ee8;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 600;
   margin-bottom: 40px;
   text-align: left;
+  position: relative;
+  
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #306ee8;
+    border-radius: 2px;
+  }
 `;
 
 const EducationItem = styled.div`
@@ -45,14 +57,16 @@ const Details = styled.div`
   gap: 8px;
 `;
 
-const Degree = styled.div`
+const School = styled.div`
   font-size: 18px;
   font-weight: 700;
+  color: ${({ theme }) => theme.text_primary};
 `;
 
-const School = styled.div`
+const Degree = styled.div`
   font-size: 16px;
-  color: ${({ theme }) => theme.text_secondary};
+  font-weight: 600;
+  color: ${({ theme }) => theme.primary};
 `;
 
 const Field = styled.div`
@@ -75,8 +89,8 @@ const Education = () => {
           <EducationItem key={index}>
             <Year>{edu.date}</Year>
             <Details>
-              <Degree>{edu.degree}</Degree>
               <School>{edu.school}</School>
+              <Degree>{edu.degree}</Degree>
               {edu.fieldOfStudy && <Field>Field of study: {edu.fieldOfStudy}</Field>}
               {edu.thesis && <Thesis>Thesis: {edu.thesis}</Thesis>}
             </Details>
