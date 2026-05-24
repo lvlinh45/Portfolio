@@ -87,7 +87,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           <GitHubButton href={Bio.github} target="_blank">
             Github Profile
           </GitHubButton>
-          <ThemeButton onClick={() => setDarkMode(!darkMode)}>
+          {/* <ThemeButton onClick={() => setDarkMode(!darkMode)}>
             {darkMode ? (
               <DarkModeIcon
                 sx={{ fontSize: "1.8rem" }}
@@ -99,7 +99,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                 style={{ height: "100%" }}
               />
             )}
-          </ThemeButton>
+          </ThemeButton> */}
         </ButtonContainer>
         {isOpen && (
           <MobileMenu ref={mobileMenuRef} isOpen={isOpen}>

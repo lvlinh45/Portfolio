@@ -67,12 +67,14 @@ const OrcidIcon = styled.img`
 
 const PublicationItem = styled.div`
   display: flex;
+  gap: 24px;
   margin-bottom: 30px;
   &:last-child {
     margin-bottom: 0;
   }
   @media (max-width: 768px) {
     flex-direction: column;
+    gap: 8px;
   }
 `;
 
@@ -98,6 +100,7 @@ const PubTitle = styled.div`
   font-weight: 700;
   color: ${({ theme }) => theme.text_primary};
   line-height: 1.4;
+  text-transform: uppercase;
 `;
 
 const PubTranslatedTitle = styled.div`

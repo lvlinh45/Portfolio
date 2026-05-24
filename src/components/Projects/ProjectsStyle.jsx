@@ -35,12 +35,14 @@ export const Header = styled.h2`
 
 export const ProjectItem = styled.div`
   display: flex;
+  gap: 24px;
   margin-bottom: 30px;
   &:last-child {
     margin-bottom: 0;
   }
   @media (max-width: 768px) {
     flex-direction: column;
+    gap: 8px;
   }
 `;
 

@@ -280,7 +280,19 @@ export const publications = [
     type: "Conference paper",
     role: "Software, Writing - original draft",
     isbn: "978-604-357-397-8",
-    contributors: "Linh Luong Van",
+    contributors: "Luong Van Linh, Nguyen Thi Huong Ly",
     url: "https://ebook365.vn/ict2025-information-and-communication-technology-ky-yeu-hoi-thao-khoa-hoc-cong-nghe-thong-tin-va-truyen-thong-nam-2025-lam-dong-thang-7-nam-2025-b1258.html"
+  },
+  {
+    id: 1,
+    title: "PHÁT HIỆN BUỒN NGỦ KHI LÁI XE THEO THỜI GIAN THỰC DỰA TRÊN ĐIỂM MỐC KHUÔN MẶT VÀ BI-LSTM VỚI HIỆU CHUẨN THÍCH ỨNG",
+    translatedTitle: "Real-time Driver Drowsiness Detection Based on Facial Landmarks and Bi-LSTM with Adaptive Calibration",
+    conference: "The 11th Information and Communication Technology Conference",
+    date: "2026-05",
+    type: "Conference paper",
+    role: "Software, Writing - original draft",
+    isbn: "xxx-xxx-xxx-xxx-x",
+    contributors: "Luong Van Linh, Nguyen Thi Huong Ly",
+    url: "#"
   }
 ];
