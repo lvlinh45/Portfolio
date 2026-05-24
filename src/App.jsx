@@ -12,6 +12,7 @@ import Contact from "./components/Contact";
 import { useState } from "react";
 import Footer from "./components/Footer";
 import ProjectDetails from "./components/ProjectDetails";
+import Publications from "./components/Publications";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import ScrollToTop from "react-scroll-to-top";
 import { IoIosArrowUp } from "react-icons/io";
@@ -54,12 +55,13 @@ function App() {
           <Body>
             <Hero />
             <Wrapper>
+              <Education />
               <Skills />
               <Experience />
             </Wrapper>
             <Projects openModal={openModal} setOpenModal={setOpenModal} />
+            <Publications />
             <Wrapper>
-              <Education />
               <Contact />
             </Wrapper>
             <Footer />

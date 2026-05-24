@@ -81,6 +81,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           <NavLink href="#skills">Skills</NavLink>
           <NavLink href="#experience">Experience</NavLink>
           <NavLink href="#projects">Projects</NavLink>
+          <NavLink href="#publications">Publications</NavLink>
           <NavLink href="#education">Education</NavLink>
         </NavItems>
         <ButtonContainer>
@@ -134,6 +135,14 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               }}
             >
               Projects
+            </MobileLink>
+            <MobileLink
+              href="#publications"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
+              Publications
             </MobileLink>
             <MobileLink
               href="#education"

@@ -195,21 +195,18 @@ export const experiences = [
 export const education = [
   {
     id: 0,
-    img: "https://upload.wikimedia.org/wikipedia/vi/thumb/e/e8/Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Hu%E1%BA%BF.svg/960px-Logo_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_Hu%E1%BA%BF.svg.png",
-    school: "Hue University",
-    date: "Sep 2025 - Present",
-    grade: "Currently Studying",
-    desc: "Currently pursuing a Master's degree in Computer Science, focusing on advanced topics in Artificial Intelligence and Software Engineering.",
-    degree: "Master of Computer Science",
+    school: "University of Sciences, Hue University",
+    date: "2025 - Present",
+    fieldOfStudy: "Computer Science",
+    thesis: "(In Progress)",
+    degree: "M.Sc. in Computer Science",
   },
   {
     id: 1,
-    img: "https://inkythuatso.com/uploads/thumbnails/800/2021/12/logo-dai-hoc-nha-trang-inkythuatso-1-02-14-45-38.jpg",
     school: "Nha Trang University",
-    date: "Sep 2021 - Jul 2025",
-    grade: "3.49 / 4",
-    desc: "Graduated with a Bachelor's degree in Information Technology. During my time at Nha Trang University, I maintained a strong academic record with a GPA of 3.49/4. I actively served as Deputy Secretary of the Youth Union - Faculty of Information Technology and was a core member of the IT Club, where I led several web development initiatives.",
-    degree: "Bachelor of Information Technology",
+    date: "2021 - 2025",
+    fieldOfStudy: "Information Technology",
+    degree: "B.Sc. in Information Technology",
   },
 ];
 
@@ -271,4 +268,19 @@ export const TimeLineData = [
   { year: 2024, text: "Continues journey and Freelancing" },
   { year: 2025, text: "Graduated and Started Master's Degree" },
   { year: 2026, text: "Master's student at Hue University" },
+];
+
+export const publications = [
+  {
+    id: 0,
+    title: "XÂY DỰNG ỨNG DỤNG HỖ TRỢ CÔNG TÁC ĐIỂM DANH SỰ KIỆN VÀ ĐÁNH GIÁ ĐIỂM RÈN LUYỆN SINH VIÊN KHOA CÔNG NGHỆ THÔNG TIN, TRƯỜNG ĐẠI HỌC NHA TRANG",
+    translatedTitle: "Developing an Application for Event Attendance Management and Student Training Point Assessment at the Faculty of Information Technology, Nha Trang University",
+    conference: "ICT2025. Information and Communication Technology",
+    date: "2025-07",
+    type: "Conference paper",
+    role: "Software, Writing - original draft",
+    isbn: "978-604-357-397-8",
+    contributors: "Linh Luong Van",
+    url: "https://ebook365.vn/ict2025-information-and-communication-technology-ky-yeu-hoi-thao-khoa-hoc-cong-nghe-thong-tin-va-truyen-thong-nam-2025-lam-dong-thang-7-nam-2025-b1258.html"
+  }
 ];
