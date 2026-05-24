@@ -94,7 +94,7 @@ const Education = () => {
             <Details>
               <School>{edu.school}</School>
               <Degree>{edu.degree}</Degree>
-              {edu.fieldOfStudy && <Field>Field of study: {edu.fieldOfStudy}</Field>}
+              {/* {edu.fieldOfStudy && <Field>Field of study: {edu.fieldOfStudy}</Field>} */}
               {edu.thesis && <Thesis>Thesis: {edu.thesis}</Thesis>}
             </Details>
           </EducationItem>
