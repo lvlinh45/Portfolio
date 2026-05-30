@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   padding: 30px 0px 60px 0px;
@@ -33,7 +34,7 @@ export const Header = styled.h2`
   }
 `;
 
-export const ProjectItem = styled.div`
+export const ProjectItem = styled(motion.div)`
   display: flex;
   gap: 24px;
   margin-bottom: 30px;

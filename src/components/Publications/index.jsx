@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { publications } from "../../data/constants";
+import { motion } from "framer-motion";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   padding: 30px 0px 60px 0px;
@@ -65,7 +66,7 @@ const OrcidIcon = styled.img`
   height: 16px;
 `;
 
-const PublicationItem = styled.div`
+const PublicationItem = styled(motion.div)`
   display: flex;
   gap: 24px;
   margin-bottom: 30px;
@@ -161,14 +162,26 @@ const DemoButton = styled.a`
 
 const Publications = () => {
   return (
-    <Container id="publications">
+    <Container
+      id="publications"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
       <Header>Publications</Header>
       <OrcidContainer href="https://orcid.org/0009-0004-8961-4507" target="_blank" rel="noopener noreferrer">
         <OrcidIcon src="https://orcid.org/assets/vectors/orcid.logo.icon.svg" alt="ORCID" />
         <span>ORCID: 0009-0004-8961-4507</span>
       </OrcidContainer>
       {publications.map((pub, index) => (
-        <PublicationItem key={index}>
+        <PublicationItem
+          key={index}
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: index * 0.2 }}
+        >
           <Year>{pub.date} | {pub.type}</Year>
           <Details>
             <PubTitle>{pub.title}</PubTitle>

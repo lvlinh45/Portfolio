@@ -12,8 +12,8 @@ export const Bio = {
     "https://drive.google.com/file/d/1w9nhJZF0rpC2S3BfcydS9au-LhqxF4g9/view?usp=sharing",
   linkedin: "https://www.linkedin.com/in/linh-l%C6%B0%C6%A1ng-679ba9275/",
   twitter: "https://x.com/_VanLinh45",
-  insta: "https://www.instagram.com/_lvlinh/",
-  facebook: "https://www.facebook.com/linh.sama.50/",
+  insta: "https://www.instagram.com/charles.luong.1404/",
+  facebook: "https://www.facebook.com/charles.luong.1404/",
 };
 
 export const skills = [

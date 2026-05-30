@@ -4,6 +4,8 @@ import { Bio } from "../../data/constants";
 import Typewriter from "typewriter-effect";
 import HeroImg from "../../images/HeroImage.jpeg";
 import HeroBgAnimation from "../HeroBgAnimation";
+import { motion } from "framer-motion";
+
 export const HeroContainer = styled.div`
   background: ${({ theme }) => theme.card_light};
   display: flex;
@@ -57,7 +59,7 @@ const HeroInnerContainer = styled.div`
   }
 `;
 
-const HeroLeftContainer = styled.div`
+const HeroLeftContainer = styled(motion.div)`
   width: 100%;
   order: 1;
   @media (max-width: 960px) {
@@ -77,7 +79,7 @@ const HeroLeftContainer = styled.div`
   }
 `;
 
-const HeroRightContainer = styled.div`
+const HeroRightContainer = styled(motion.div)`
   width: 100%;
   display: flex;
   order: 2;
@@ -227,7 +229,11 @@ const Hero = () => {
           <HeroBgAnimation></HeroBgAnimation>
         </HeroBg>
         <HeroInnerContainer>
-          <HeroLeftContainer>
+          <HeroLeftContainer
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <Title>
               Hi, I am <br /> {Bio.name}
             </Title>
@@ -248,7 +254,11 @@ const Hero = () => {
               Check Resume
             </ResumeButton>
           </HeroLeftContainer>
-          <HeroRightContainer>
+          <HeroRightContainer
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <Img src={HeroImg} alt="Hero"></Img>
           </HeroRightContainer>
         </HeroInnerContainer>
