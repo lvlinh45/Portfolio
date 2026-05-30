@@ -35,29 +35,105 @@ const Header = styled.h2`
   }
 `;
 
-const EducationItem = styled.div`
+const TimelineContainer = styled.div`
+  position: relative;
   display: flex;
-  margin-bottom: 30px;
+  flex-direction: column;
+  gap: 0px;
+`;
+
+const TimelineLine = styled.div`
+  position: absolute;
+  left: 201px; /* Center of the dot in desktop */
+  top: 6px;
+  bottom: 6px;
+  width: 1.5px;
+  background: rgba(255, 255, 255, 0.08);
+  
+  @media (max-width: 768px) {
+    left: 16px;
+  }
+`;
+
+const TimelineItem = styled.div`
+  display: flex;
+  position: relative;
+  padding-bottom: 45px;
+  
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  &:hover {
+    .timeline-dot {
+      background: #854CE6;
+      box-shadow: 0 0 15px #854CE6;
+      transform: scale(1.3);
+    }
+    .timeline-content {
+      transform: translateX(8px);
+      color: ${({ theme }) => theme.white};
+    }
+  }
+
   @media (max-width: 768px) {
     flex-direction: column;
+    padding-left: 36px;
   }
 `;
 
 const Year = styled.div`
-  width: 200px;
-  font-size: 16px;
+  width: 180px;
+  font-size: 15px;
   font-weight: 600;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.text_secondary};
   flex-shrink: 0;
+  padding-top: 2px;
+  
   @media (max-width: 768px) {
-    margin-bottom: 10px;
+    width: auto;
+    margin-bottom: 12px;
+    font-size: 14px;
   }
+`;
+
+const DotContainer = styled.div`
+  width: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 6px;
+  flex-shrink: 0;
+  z-index: 2;
+  
+  @media (max-width: 768px) {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 32px;
+  }
+`;
+
+const Dot = styled.div`
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(133, 76, 230, 0.2);
+  border: 2px solid #854CE6;
+  box-shadow: 0 0 8px rgba(133, 76, 230, 0.5);
+  transition: all 0.3s ease-in-out;
 `;
 
 const Details = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
+  transition: all 0.3s ease-in-out;
+  padding-left: 10px;
+  
+  @media (max-width: 768px) {
+    padding-left: 0;
+  }
 `;
 
 const School = styled.div`
@@ -67,39 +143,46 @@ const School = styled.div`
 `;
 
 const Degree = styled.div`
-  font-size: 16px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.primary};
-`;
-
-const Field = styled.div`
   font-size: 15px;
-  color: ${({ theme }) => theme.text_secondary};
+  font-weight: 600;
+  color: #854CE6;
 `;
 
 const Thesis = styled.div`
-  font-size: 15px;
+  font-size: 14px;
   font-style: italic;
   color: ${({ theme }) => theme.text_secondary};
+  background: rgba(133, 76, 230, 0.05);
+  border-left: 2px solid #854CE6;
+  padding: 4px 10px;
+  margin-top: 4px;
+  display: inline-block;
+  align-self: flex-start;
+  border-radius: 0 4px 4px 0;
 `;
 
 const Education = () => {
   return (
     <Container id="education">
       <Header>Education</Header>
-      {education.map((edu, index) => {
-        return (
-          <EducationItem key={index}>
-            <Year>{edu.date}</Year>
-            <Details>
-              <School>{edu.school}</School>
-              <Degree>{edu.degree}</Degree>
-              {/* {edu.fieldOfStudy && <Field>Field of study: {edu.fieldOfStudy}</Field>} */}
-              {edu.thesis && <Thesis>Thesis: {edu.thesis}</Thesis>}
-            </Details>
-          </EducationItem>
-        );
-      })}
+      <TimelineContainer>
+        <TimelineLine />
+        {education.map((edu, index) => {
+          return (
+            <TimelineItem key={index}>
+              <Year>{edu.date}</Year>
+              <DotContainer>
+                <Dot className="timeline-dot" />
+              </DotContainer>
+              <Details className="timeline-content">
+                <School>{edu.school}</School>
+                <Degree>{edu.degree}</Degree>
+                {edu.thesis && <Thesis>Thesis: {edu.thesis}</Thesis>}
+              </Details>
+            </TimelineItem>
+          );
+        })}
+      </TimelineContainer>
     </Container>
   );
 };
