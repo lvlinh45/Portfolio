@@ -79,13 +79,15 @@ const PublicationItem = styled.div`
 `;
 
 const Year = styled.div`
-  width: 200px;
+  width: 250px;
   font-size: 16px;
   font-weight: 600;
   color: ${({ theme }) => theme.text_primary};
   flex-shrink: 0;
+  white-space: nowrap;
   @media (max-width: 768px) {
     margin-bottom: 10px;
+    width: auto;
   }
 `;
 
