@@ -294,5 +294,17 @@ export const publications = [
     isbn: "978-604-357-397-8",
     contributors: "Luong Van Linh, Nguyen Thi Huong Ly",
     url: "https://ebook365.vn/ict2025-information-and-communication-technology-ky-yeu-hoi-thao-khoa-hoc-cong-nghe-thong-tin-va-truyen-thong-nam-2025-lam-dong-thang-7-nam-2025-b1258.html"
+  },
+  {
+    id: 2,
+    title: "XÂY DỰNG ỨNG DỤNG HỖ TRỢ CÔNG TÁC SINH VIÊN KHOA CÔNG NGHỆ THÔNG TIN, TRƯỜNG ĐẠI HỌC NHA TRANG",
+    translatedTitle: "Building an Application to Support Student Affairs at the Faculty of Information Technology, Nha Trang University",
+    conference: "Nha Trang University (Student Scientific Research Project)",
+    date: "2025-05",
+    type: "Report",
+    role: "Main Researcher",
+    doi: "10.5281/ZENODO.20388623",
+    contributors: "Linh Luong Van",
+    url: "https://doi.org/10.5281/ZENODO.20388623"
   }
 ];

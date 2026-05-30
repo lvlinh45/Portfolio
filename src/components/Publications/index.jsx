@@ -170,12 +170,22 @@ const Publications = () => {
           <Year>{pub.date} | {pub.type}</Year>
           <Details>
             <PubTitle>{pub.title}</PubTitle>
-            {/* <PubTranslatedTitle>Translated Title: {pub.translatedTitle}</PubTranslatedTitle> */}
+            {pub.translatedTitle && (
+              <PubTranslatedTitle>{pub.translatedTitle}</PubTranslatedTitle>
+            )}
             <PubMeta>
-              <MetaItem><span>Conference:</span> {pub.conference}</MetaItem>
-              <MetaItem><span>Role:</span> {pub.role}</MetaItem>
-              <MetaItem><span>ISBN:</span> {pub.isbn}</MetaItem>
-              <MetaItem><span>Contributors:</span> {pub.contributors}</MetaItem>
+              {pub.conference && <MetaItem><span>Conference:</span> {pub.conference}</MetaItem>}
+              {pub.role && <MetaItem><span>Role:</span> {pub.role}</MetaItem>}
+              {pub.isbn && pub.isbn !== "xxx-xxx-xxx-xxx-x" && <MetaItem><span>ISBN:</span> {pub.isbn}</MetaItem>}
+              {pub.doi && (
+                <MetaItem>
+                  <span>DOI:</span>{" "}
+                  <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer" style={{ color: "#306ee8", textDecoration: "none" }}>
+                    {pub.doi}
+                  </a>
+                </MetaItem>
+              )}
+              {pub.contributors && <MetaItem><span>Contributors:</span> {pub.contributors}</MetaItem>}
             </PubMeta>
             {pub.url && (
               <Links>
