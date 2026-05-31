@@ -217,7 +217,6 @@ export const projects = [
     date: "May 2026 - Jun 2026",
     description:
       "A pioneer B2B circular economy marketplace connecting farming cooperatives and industrial buyers to trade agricultural by-products. Features dynamic VietQR escrow payments, instant negotiation chat, automated SHA-256 certified cryptographic PDF contracts, and real-time CO2 emission reduction calculations.",
-    image: "/bioloop.png",
     tags: [
       "ReactJS",
       "NodeJS",
@@ -241,7 +240,6 @@ export const projects = [
     date: "Dec 2024 - Jun 2026",
     description:
       "An eco-tourism booking and travel guide management ecosystem consisting of a React 19 web PWA client, a Flutter mobile app, a Node.js/Express API, and an Admin dashboard. Integrated with Leaflet maps for real-time guide tracking, Google Gemini AI as a smart travel assistant, instant multi-channel socket.io chat, Google OAuth 2.0 authentication, and a rich role-based (RBAC) analytics panel with Recharts and Dnd-kit sorting.",
-    image: "/ecoguide.png",
     tags: [
       "ReactJS",
       "Flutter",
@@ -266,7 +264,6 @@ export const projects = [
     date: "Jan 2025 - Feb 2025",
     description:
       "A modern, high-performance e-commerce platform built with TypeScript, featuring a sophisticated product gallery and optimized user shopping experience. Optimized for speed and scalability.",
-    image: "/commerse.png",
     tags: ["TypeScript", "ReactJS", "Styled-components"],
     category: "web app",
     github: "https://github.com/lvlinh45/E-commerse",
@@ -278,8 +275,6 @@ export const projects = [
     date: "Jan 2023 - Feb 2023",
     description:
       "In this project, I applied the knowledge I learned about HTML, CSS, JS to clone Udemy's website.",
-    image:
-      "https://res.cloudinary.com/dxb5onj6f/image/upload/v1730993959/z6010247259053_b4c730d2faffb9a8cb6d62d9c6b0315b_lq3eob.jpg",
     tags: ["HTML", "CSS", "Javascript", "SASS", "Bootstrap"],
     category: "web app",
     github: "https://github.com/lvlinh45/Elearning",
