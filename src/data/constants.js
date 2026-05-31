@@ -212,6 +212,30 @@ export const education = [
 
 export const projects = [
   {
+    id: 12,
+    title: "BioLoop VN",
+    date: "May 2026 - Jun 2026",
+    description:
+      "A pioneer B2B circular economy marketplace connecting farming cooperatives and industrial buyers to trade agricultural by-products. Features dynamic VietQR escrow payments, instant negotiation chat, automated SHA-256 certified cryptographic PDF contracts, and real-time CO2 emission reduction calculations.",
+    image: "/bioloop.png",
+    tags: [
+      "ReactJS",
+      "NodeJS",
+      "ExpressJS",
+      "MongoDB",
+      "TypeScript",
+      "Tailwind CSS",
+      "Redux Toolkit",
+      "React Query",
+      "Socket.io",
+      "Vite",
+      "PDFKit",
+    ],
+    category: "web app",
+    github: "https://github.com/lvlinh45/BioLoop_FE",
+    webapp: "https://bioloopvn.site/",
+  },
+  {
     id: 10,
     title: "EcoGuide",
     date: "Dec 2024 - Jun 2026",
