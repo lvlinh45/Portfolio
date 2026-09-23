@@ -147,20 +147,24 @@ const AdminDashboard = () => {
   };
 
   // Bio Save Handler
-  const handleBioSave = (e) => {
+  const handleBioSave = async (e) => {
     e.preventDefault();
     const updatedBio = {
       ...bioForm,
       roles: bioForm.roles.split(",").map((r) => r.trim()).filter(Boolean),
     };
-    updateBio(updatedBio);
-    showToast("Đã lưu thông tin cá nhân (Bio) thành công!");
+    const res = await updateBio(updatedBio);
+    if (res?.success !== false) {
+      showToast("Đã lưu thông tin cá nhân (Bio) thành công!");
+    } else {
+      showToast(res.error || "Lỗi khi lưu thông tin cá nhân!", "error");
+    }
   };
 
   // Password / Credentials change handler
-  const handleCredentialsChange = (e) => {
+  const handleCredentialsChange = async (e) => {
     e.preventDefault();
-    const res = changeAdminCredentials(
+    const res = await changeAdminCredentials(
       pwForm.oldPassword,
       pwForm.newUsername,
       pwForm.newPassword
@@ -169,7 +173,7 @@ const AdminDashboard = () => {
       showToast("Đã cập nhật thông tin đăng nhập thành công!");
       setPwForm({ oldPassword: "", newUsername: pwForm.newUsername, newPassword: "" });
     } else {
-      showToast(res.error, "error");
+      showToast(res.error || "Lỗi khi đổi mật khẩu!", "error");
     }
   };
 
@@ -503,11 +507,12 @@ const AdminDashboard = () => {
                     <Button
                       $size="small"
                       $variant="danger"
-                      onClick={() => {
+                      onClick={async () => {
                         if (window.confirm(`Bạn có chắc muốn xoá nhóm "${category.title}"?`)) {
                           const updated = skills.filter((_, i) => i !== catIndex);
-                          updateSkills(updated);
-                          showToast(`Đã xoá nhóm "${category.title}"`);
+                          const res = await updateSkills(updated);
+                          if (res?.success !== false) showToast(`Đã xoá nhóm "${category.title}"`);
+                          else showToast(res.error || "Lỗi khi xoá nhóm kỹ năng", "error");
                         }
                       }}
                     >
@@ -560,11 +565,12 @@ const AdminDashboard = () => {
                           cursor: "pointer",
                           padding: 0,
                         }}
-                        onClick={() => {
+                        onClick={async () => {
                           const newSkills = [...skills];
                           newSkills[catIndex].skills = newSkills[catIndex].skills.filter((_, i) => i !== sIdx);
-                          updateSkills(newSkills);
-                          showToast(`Đã xoá kỹ năng ${skill.name}`);
+                          const res = await updateSkills(newSkills);
+                          if (res?.success !== false) showToast(`Đã xoá kỹ năng ${skill.name}`);
+                          else showToast(res.error || "Lỗi khi xoá kỹ năng", "error");
                         }}
                         title="Xoá kỹ năng"
                       >
@@ -618,11 +624,12 @@ const AdminDashboard = () => {
                     <Button
                       $size="small"
                       $variant="danger"
-                      onClick={() => {
+                      onClick={async () => {
                         if (window.confirm(`Xoá kinh nghiệm tại "${exp.company}"?`)) {
                           const updated = experiences.filter((_, i) => i !== index);
-                          updateExperiences(updated);
-                          showToast(`Đã xoá kinh nghiệm tại ${exp.company}`);
+                          const res = await updateExperiences(updated);
+                          if (res?.success !== false) showToast(`Đã xoá kinh nghiệm tại ${exp.company}`);
+                          else showToast(res.error || "Lỗi khi xoá kinh nghiệm", "error");
                         }
                       }}
                     >
@@ -669,11 +676,12 @@ const AdminDashboard = () => {
                     <Button
                       $size="small"
                       $variant="danger"
-                      onClick={() => {
+                      onClick={async () => {
                         if (window.confirm(`Xoá học vấn tại "${edu.school}"?`)) {
                           const updated = education.filter((_, i) => i !== index);
-                          updateEducation(updated);
-                          showToast(`Đã xoá học vấn tại ${edu.school}`);
+                          const res = await updateEducation(updated);
+                          if (res?.success !== false) showToast(`Đã xoá học vấn tại ${edu.school}`);
+                          else showToast(res.error || "Lỗi khi xoá học vấn", "error");
                         }
                       }}
                     >
@@ -734,11 +742,12 @@ const AdminDashboard = () => {
                     <Button
                       $size="small"
                       $variant="danger"
-                      onClick={() => {
+                      onClick={async () => {
                         if (window.confirm(`Xoá dự án "${proj.title}"?`)) {
                           const updated = projects.filter((_, i) => i !== index);
-                          updateProjects(updated);
-                          showToast(`Đã xoá dự án ${proj.title}`);
+                          const res = await updateProjects(updated);
+                          if (res?.success !== false) showToast(`Đã xoá dự án ${proj.title}`);
+                          else showToast(res.error || "Lỗi khi xoá dự án", "error");
                         }
                       }}
                     >
@@ -798,11 +807,12 @@ const AdminDashboard = () => {
                     <Button
                       $size="small"
                       $variant="danger"
-                      onClick={() => {
+                      onClick={async () => {
                         if (window.confirm(`Xoá công trình "${pub.title}"?`)) {
                           const updated = publications.filter((_, i) => i !== index);
-                          updatePublications(updated);
-                          showToast(`Đã xoá công trình nghiên cứu!`);
+                          const res = await updatePublications(updated);
+                          if (res?.success !== false) showToast(`Đã xoá công trình nghiên cứu!`);
+                          else showToast(res.error || "Lỗi khi xoá công trình", "error");
                         }
                       }}
                     >
@@ -1079,11 +1089,14 @@ const AdminDashboard = () => {
                   </p>
                   <Button
                     $variant="danger"
-                    onClick={() => {
+                    onClick={async () => {
                       if (window.confirm("Bạn có chắc chắn muốn khôi phục toàn bộ dữ liệu về mặc định ban đầu?")) {
-                        resetToDefaults();
-                        showToast("Đã khôi phục toàn bộ dữ liệu về mặc định!");
-                        // update local form
+                        const res = await resetToDefaults();
+                        if (res?.success !== false) {
+                          showToast("Đã khôi phục toàn bộ dữ liệu về mặc định!");
+                        } else {
+                          showToast(res.error || "Lỗi khi khôi phục dữ liệu!", "error");
+                        }
                         setBioForm({
                           name: bio.name || "",
                           roles: (bio.roles || []).join(", "),
@@ -1189,53 +1202,55 @@ const GenericItemModal = ({
     url: data ? data.url || "" : "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    let res = { success: true };
     if (type === "skillCategory") {
       if (mode === "add") {
-        updateSkills([...skills, { title: catTitle, skills: [] }]);
-        showToast(`Đã thêm nhóm kỹ năng "${catTitle}"`);
+        res = await updateSkills([...skills, { title: catTitle, skills: [] }]);
+        if (res?.success !== false) showToast(`Đã thêm nhóm kỹ năng "${catTitle}"`);
       } else {
         const updated = [...skills];
         updated[data.index].title = catTitle;
-        updateSkills(updated);
-        showToast("Đã cập nhật nhóm kỹ năng!");
+        res = await updateSkills(updated);
+        if (res?.success !== false) showToast("Đã cập nhật nhóm kỹ năng!");
       }
     } else if (type === "skillItem") {
       const updated = [...skills];
       if (mode === "add") {
         if (!updated[parentId].skills) updated[parentId].skills = [];
         updated[parentId].skills.push({ ...skillForm });
-        showToast(`Đã thêm kỹ năng "${skillForm.name}"`);
+        res = await updateSkills(updated);
+        if (res?.success !== false) showToast(`Đã thêm kỹ năng "${skillForm.name}"`);
       } else {
         updated[parentId].skills[data.itemIndex] = { ...skillForm };
-        showToast(`Đã cập nhật kỹ năng "${skillForm.name}"`);
+        res = await updateSkills(updated);
+        if (res?.success !== false) showToast(`Đã cập nhật kỹ năng "${skillForm.name}"`);
       }
-      updateSkills(updated);
     } else if (type === "experience") {
       const formattedExp = {
         ...expForm,
         skills: expForm.skills.split(",").map((s) => s.trim()).filter(Boolean),
       };
       if (mode === "add") {
-        updateExperiences([{ ...formattedExp, id: Date.now() }, ...experiences]);
-        showToast(`Đã thêm kinh nghiệm tại "${formattedExp.company}"`);
+        res = await updateExperiences([{ ...formattedExp, id: Date.now() }, ...experiences]);
+        if (res?.success !== false) showToast(`Đã thêm kinh nghiệm tại "${formattedExp.company}"`);
       } else {
         const updated = [...experiences];
         updated[data.index] = { ...updated[data.index], ...formattedExp };
-        updateExperiences(updated);
-        showToast(`Đã cập nhật kinh nghiệm!`);
+        res = await updateExperiences(updated);
+        if (res?.success !== false) showToast(`Đã cập nhật kinh nghiệm!`);
       }
     } else if (type === "education") {
       if (mode === "add") {
-        updateEducation([{ ...eduForm, id: Date.now() }, ...education]);
-        showToast(`Đã thêm học vấn "${eduForm.school}"`);
+        res = await updateEducation([{ ...eduForm, id: Date.now() }, ...education]);
+        if (res?.success !== false) showToast(`Đã thêm học vấn "${eduForm.school}"`);
       } else {
         const updated = [...education];
         updated[data.index] = { ...updated[data.index], ...eduForm };
-        updateEducation(updated);
-        showToast("Đã cập nhật học vấn!");
+        res = await updateEducation(updated);
+        if (res?.success !== false) showToast("Đã cập nhật học vấn!");
       }
     } else if (type === "project") {
       const formattedProj = {
@@ -1243,27 +1258,31 @@ const GenericItemModal = ({
         tags: projForm.tags.split(",").map((t) => t.trim()).filter(Boolean),
       };
       if (mode === "add") {
-        updateProjects([{ ...formattedProj, id: Date.now() }, ...projects]);
-        showToast(`Đã thêm dự án "${formattedProj.title}"`);
+        res = await updateProjects([{ ...formattedProj, id: Date.now() }, ...projects]);
+        if (res?.success !== false) showToast(`Đã thêm dự án "${formattedProj.title}"`);
       } else {
         const updated = [...projects];
         updated[data.index] = { ...updated[data.index], ...formattedProj };
-        updateProjects(updated);
-        showToast("Đã cập nhật dự án!");
+        res = await updateProjects(updated);
+        if (res?.success !== false) showToast("Đã cập nhật dự án!");
       }
     } else if (type === "publication") {
       if (mode === "add") {
-        updatePublications([{ ...pubForm, id: Date.now() }, ...publications]);
-        showToast("Đã thêm công trình nghiên cứu!");
+        res = await updatePublications([{ ...pubForm, id: Date.now() }, ...publications]);
+        if (res?.success !== false) showToast("Đã thêm công trình nghiên cứu!");
       } else {
         const updated = [...publications];
         updated[data.index] = { ...updated[data.index], ...pubForm };
-        updatePublications(updated);
-        showToast("Đã cập nhật công trình nghiên cứu!");
+        res = await updatePublications(updated);
+        if (res?.success !== false) showToast("Đã cập nhật công trình nghiên cứu!");
       }
     }
 
-    closeModal();
+    if (res?.success === false) {
+      showToast(res.error || "Lỗi lưu vào cơ sở dữ liệu!", "error");
+    } else {
+      closeModal();
+    }
   };
 
   return (

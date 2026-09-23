@@ -83,27 +83,39 @@ export const subscribeToPortfolioDoc = (onData, onAuthData) => {
   }
 };
 
+// Clean object to remove undefined fields which Firestore rejects
+const sanitizeForFirestore = (obj) => {
+  return JSON.parse(
+    JSON.stringify(obj, (key, value) => {
+      return value === undefined ? "" : value;
+    })
+  );
+};
+
 // Save portfolio content directly to Firestore
 export const savePortfolioToFirestore = async (data) => {
   const { success, db: database, error } = initFirebase();
   if (!success || !database) {
+    console.error("Firestore init error:", error);
     return { success: false, error: error || "Firebase chưa được khởi tạo" };
   }
 
   try {
     const docRef = doc(database, "portfolio", "content");
+    const cleanData = sanitizeForFirestore(data);
     await setDoc(
       docRef,
       {
-        ...data,
+        ...cleanData,
         updatedAt: new Date().toISOString(),
       },
       { merge: true }
     );
+    console.log("Successfully saved to Firestore 'portfolio/content'");
     return { success: true };
   } catch (err) {
     console.error("Firestore write error:", err);
-    return { success: false, error: err.message };
+    return { success: false, error: err.message || "Lỗi ghi dữ liệu vào Firestore" };
   }
 };
 
@@ -111,16 +123,19 @@ export const savePortfolioToFirestore = async (data) => {
 export const saveAdminAuthToFirestore = async (authData) => {
   const { success, db: database, error } = initFirebase();
   if (!success || !database) {
+    console.error("Firestore init error:", error);
     return { success: false, error: error || "Firebase chưa được khởi tạo" };
   }
 
   try {
     const docRef = doc(database, "portfolio", "auth");
-    await setDoc(docRef, authData, { merge: true });
+    const cleanAuth = sanitizeForFirestore(authData);
+    await setDoc(docRef, cleanAuth, { merge: true });
+    console.log("Successfully saved to Firestore 'portfolio/auth'");
     return { success: true };
   } catch (err) {
     console.error("Firestore auth write error:", err);
-    return { success: false, error: err.message };
+    return { success: false, error: err.message || "Lỗi ghi mật khẩu vào Firestore" };
   }
 };
 

@@ -13,7 +13,6 @@ import {
   subscribeToPortfolioDoc,
   savePortfolioToFirestore,
   saveAdminAuthToFirestore,
-  fetchPortfolioFromFirestore,
 } from "../firebase";
 
 const PortfolioContext = createContext(null);
@@ -43,16 +42,17 @@ export const PortfolioProvider = ({ children }) => {
     return sessionStorage.getItem(SESSION_KEY) === "true";
   });
 
-  // Apply cloud data to state
+  // Apply cloud data to state and heal missing keys if any
   const applyCloudData = (cloudData) => {
     if (!cloudData) return;
+
     if (cloudData.bio) setBioState(cloudData.bio);
-    if (cloudData.skills) setSkillsState(cloudData.skills);
-    if (cloudData.experiences) setExperiencesState(cloudData.experiences);
-    if (cloudData.education) setEducationState(cloudData.education);
-    if (cloudData.projects) setProjectsState(cloudData.projects);
-    if (cloudData.publications) setPublicationsState(cloudData.publications);
-    if (cloudData.timeline) setTimelineState(cloudData.timeline);
+    if (Array.isArray(cloudData.skills)) setSkillsState(cloudData.skills);
+    if (Array.isArray(cloudData.experiences)) setExperiencesState(cloudData.experiences);
+    if (Array.isArray(cloudData.education)) setEducationState(cloudData.education);
+    if (Array.isArray(cloudData.projects)) setProjectsState(cloudData.projects);
+    if (Array.isArray(cloudData.publications)) setPublicationsState(cloudData.publications);
+    if (Array.isArray(cloudData.timeline)) setTimelineState(cloudData.timeline);
   };
 
   // Subscribe directly to Firestore database
@@ -61,30 +61,47 @@ export const PortfolioProvider = ({ children }) => {
     setIsFirebaseConnected(success);
 
     if (success) {
-      // First fetch: check if Firestore is empty -> if so, initialize with default data
-      fetchPortfolioFromFirestore().then(async (cloudData) => {
-        if (cloudData) {
-          applyCloudData(cloudData);
-        } else {
-          // Initialize database with initial default data if brand new
-          await savePortfolioToFirestore({
-            bio: defaultBio,
-            skills: defaultSkills,
-            experiences: defaultExperiences,
-            education: defaultEducation,
-            projects: defaultProjects,
-            publications: defaultPublications,
-            timeline: defaultTimeline,
-          });
-        }
-        setIsLoadingFromDatabase(false);
-      });
-
       // Real-time snapshot listener from Firestore
       const unsubscribe = subscribeToPortfolioDoc(
-        (cloudData) => {
-          if (cloudData) {
-            applyCloudData(cloudData);
+        async (cloudData) => {
+          if (cloudData && typeof cloudData === "object") {
+            // Check if any main section is missing in Firestore, heal it automatically
+            const needsHealing =
+              !cloudData.bio ||
+              !Array.isArray(cloudData.skills) ||
+              !Array.isArray(cloudData.experiences) ||
+              !Array.isArray(cloudData.education) ||
+              !Array.isArray(cloudData.projects) ||
+              !Array.isArray(cloudData.publications);
+
+            if (needsHealing) {
+              const fullData = {
+                bio: cloudData.bio || defaultBio,
+                skills: Array.isArray(cloudData.skills) ? cloudData.skills : defaultSkills,
+                experiences: Array.isArray(cloudData.experiences) ? cloudData.experiences : defaultExperiences,
+                education: Array.isArray(cloudData.education) ? cloudData.education : defaultEducation,
+                projects: Array.isArray(cloudData.projects) ? cloudData.projects : defaultProjects,
+                publications: Array.isArray(cloudData.publications) ? cloudData.publications : defaultPublications,
+                timeline: Array.isArray(cloudData.timeline) ? cloudData.timeline : defaultTimeline,
+              };
+              applyCloudData(fullData);
+              await savePortfolioToFirestore(fullData);
+            } else {
+              applyCloudData(cloudData);
+            }
+          } else {
+            // First time database is empty -> seed full initial data
+            const initialData = {
+              bio: defaultBio,
+              skills: defaultSkills,
+              experiences: defaultExperiences,
+              education: defaultEducation,
+              projects: defaultProjects,
+              publications: defaultPublications,
+              timeline: defaultTimeline,
+            };
+            applyCloudData(initialData);
+            await savePortfolioToFirestore(initialData);
           }
           setIsLoadingFromDatabase(false);
         },
