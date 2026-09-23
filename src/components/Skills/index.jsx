@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { skills } from "../../data/constants";
+import { usePortfolioData } from "../../context/PortfolioContext";
 import { motion } from "framer-motion";
 
 const Container = styled(motion.div)`
@@ -118,6 +118,8 @@ const SkillImage = styled.img`
 `;
 
 const Skills = () => {
+  const { skills } = usePortfolioData();
+
   return (
     <Container
       id="skills"
@@ -143,7 +145,7 @@ const Skills = () => {
             >
               <SkillTitle>{skill.title}</SkillTitle>
               <SkillList>
-                {skill.skills.map((item, index) => (
+                {skill.skills && skill.skills.map((item, index) => (
                   <SkillItem
                     key={index}
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -155,7 +157,7 @@ const Skills = () => {
                       delay: index * 0.05,
                     }}
                   >
-                    <SkillImage src={item.image} />
+                    {item.image && <SkillImage src={item.image} />}
                     <span>{item.name}</span>
                   </SkillItem>
                 ))}

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { education } from "../../data/constants";
+import { usePortfolioData } from "../../context/PortfolioContext";
 import { motion } from "framer-motion";
 
 const Container = styled(motion.div)`
@@ -163,6 +163,8 @@ const Thesis = styled.div`
 `;
 
 const Education = () => {
+  const { education } = usePortfolioData();
+
   return (
     <Container
       id="education"

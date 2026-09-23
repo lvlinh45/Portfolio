@@ -12,9 +12,11 @@ import {
   GithubButton,
   DemoButton,
 } from "./ProjectsStyle";
-import { projects } from "../../data/constants";
+import { usePortfolioData } from "../../context/PortfolioContext";
 
 const Projects = () => {
+  const { projects } = usePortfolioData();
+
   return (
     <Container
       id="projects"
@@ -36,11 +38,13 @@ const Projects = () => {
           <Details>
             <ProjectTitle>{project.title}</ProjectTitle>
             <ProjectDesc>{project.description}</ProjectDesc>
-            <Tags>
-              {project.tags.map((tag, idx) => (
-                <Tag key={idx}>{tag}</Tag>
-              ))}
-            </Tags>
+            {project.tags && project.tags.length > 0 && (
+              <Tags>
+                {project.tags.map((tag, idx) => (
+                  <Tag key={idx}>{tag}</Tag>
+                ))}
+              </Tags>
+            )}
             <Links>
               {project.github && (
                 <GithubButton href={project.github} target="_blank" rel="noopener noreferrer">

@@ -15,12 +15,12 @@ import {
 } from "./NavbarStyledComponent";
 import { DiCssdeck } from "react-icons/di";
 import { FaBars } from "react-icons/fa";
-import { Bio } from "../../data/constants";
+import { usePortfolioData } from "../../context/PortfolioContext";
 import { useTheme } from "styled-components";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 const Navbar = ({ darkMode, setDarkMode }) => {
-  console.log("TCL: Navbar -> darkMode", darkMode);
+  const { bio } = usePortfolioData();
   const [isOpen, setIsOpen] = React.useState(false);
   const mobileMenuRef = React.useRef();
   const theme = useTheme();
@@ -84,22 +84,9 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           <NavLink href="#publications">Publications</NavLink>
         </NavItems>
         <ButtonContainer>
-          <GitHubButton href={Bio.github} target="_blank">
+          <GitHubButton href={bio.github} target="_blank">
             Github Profile
           </GitHubButton>
-          {/* <ThemeButton onClick={() => setDarkMode(!darkMode)}>
-            {darkMode ? (
-              <DarkModeIcon
-                sx={{ fontSize: "1.8rem" }}
-                style={{ height: "100%" }}
-              />
-            ) : (
-              <LightModeIcon
-                sx={{ fontSize: "1.8rem" }}
-                style={{ height: "100%" }}
-              />
-            )}
-          </ThemeButton> */}
         </ButtonContainer>
         {isOpen && (
           <MobileMenu ref={mobileMenuRef} isOpen={isOpen}>
@@ -150,7 +137,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                 color: "white",
                 width: "max-content",
               }}
-              href={Bio.github}
+              href={bio.github}
               target="_blank"
             >
               Github Profile

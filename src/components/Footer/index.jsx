@@ -3,7 +3,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import { Bio } from "../../data/constants";
+import { usePortfolioData } from "../../context/PortfolioContext";
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -84,27 +84,37 @@ const Copyright = styled.p`
 `;
 
 function Footer() {
+  const { bio } = usePortfolioData();
+
   return (
     <FooterContainer>
       <FooterWrapper>
-        <Logo>Luong Van Linh</Logo>
+        <Logo>{bio.name}</Logo>
 
         <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.facebook} target="display">
-            <FacebookIcon />
-          </SocialMediaIcon>
-          <SocialMediaIcon href={Bio.twitter} target="display">
-            <TwitterIcon />
-          </SocialMediaIcon>
-          <SocialMediaIcon href={Bio.linkedin} target="display">
-            <LinkedInIcon />
-          </SocialMediaIcon>
-          <SocialMediaIcon href={Bio.insta} target="display">
-            <InstagramIcon />
-          </SocialMediaIcon>
+          {bio.facebook && (
+            <SocialMediaIcon href={bio.facebook} target="_blank" rel="noopener noreferrer">
+              <FacebookIcon />
+            </SocialMediaIcon>
+          )}
+          {bio.twitter && (
+            <SocialMediaIcon href={bio.twitter} target="_blank" rel="noopener noreferrer">
+              <TwitterIcon />
+            </SocialMediaIcon>
+          )}
+          {bio.linkedin && (
+            <SocialMediaIcon href={bio.linkedin} target="_blank" rel="noopener noreferrer">
+              <LinkedInIcon />
+            </SocialMediaIcon>
+          )}
+          {bio.insta && (
+            <SocialMediaIcon href={bio.insta} target="_blank" rel="noopener noreferrer">
+              <InstagramIcon />
+            </SocialMediaIcon>
+          )}
         </SocialMediaIcons>
         <Copyright>
-          &copy; {new Date().getFullYear()} Luong Van Linh. All rights reserved.
+          &copy; {new Date().getFullYear()} {bio.name}. All rights reserved.
         </Copyright>
       </FooterWrapper>
     </FooterContainer>

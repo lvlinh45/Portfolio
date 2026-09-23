@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Bio } from "../../data/constants";
+import { usePortfolioData } from "../../context/PortfolioContext";
 import Typewriter from "typewriter-effect";
 import HeroImg from "../../images/HeroImage.jpeg";
 import HeroBgAnimation from "../HeroBgAnimation";
@@ -222,6 +222,8 @@ export const Img = styled.img`
 `;
 
 const Hero = () => {
+  const { bio } = usePortfolioData();
+
   return (
     <div id="about">
       <HeroContainer>
@@ -235,24 +237,27 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <Title>
-              Hi, I am <br /> {Bio.name}
+              Hi, I am <br /> {bio.name}
             </Title>
             <TextLoop>
               I am a{" "}
               <Span>
                 <Typewriter
+                  key={JSON.stringify(bio.roles)}
                   options={{
-                    strings: Bio.roles,
+                    strings: bio.roles || [],
                     autoStart: true,
                     loop: true,
                   }}
                 />
               </Span>
             </TextLoop>
-            <SubTitle>{Bio.description}</SubTitle>
-            <ResumeButton href={Bio.resume} target="display">
-              Check Resume
-            </ResumeButton>
+            <SubTitle>{bio.description}</SubTitle>
+            {bio.resume && (
+              <ResumeButton href={bio.resume} target="_blank" rel="noopener noreferrer">
+                Check Resume
+              </ResumeButton>
+            )}
           </HeroLeftContainer>
           <HeroRightContainer
             initial={{ opacity: 0, x: 50 }}

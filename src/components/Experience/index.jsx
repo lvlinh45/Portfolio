@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { experiences } from "../../data/constants";
+import { usePortfolioData } from "../../context/PortfolioContext";
 import { motion } from "framer-motion";
 
 const Container = styled(motion.div)`
@@ -150,6 +150,8 @@ const Role = styled.div`
 `;
 
 const Experience = () => {
+  const { experiences } = usePortfolioData();
+
   return (
     <Container
       id="experience"

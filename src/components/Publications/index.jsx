@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { publications } from "../../data/constants";
+import { usePortfolioData } from "../../context/PortfolioContext";
 import { motion } from "framer-motion";
 
 const Container = styled(motion.div)`
@@ -161,6 +161,8 @@ const DemoButton = styled.a`
 `;
 
 const Publications = () => {
+  const { publications } = usePortfolioData();
+
   return (
     <Container
       id="publications"
