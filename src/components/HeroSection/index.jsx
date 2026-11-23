@@ -152,14 +152,13 @@ const SubTitle = styled.div`
 `;
 
 const ResumeButton = styled.a`
-  -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: button;
+  display: inline-block;
+  box-sizing: border-box;
   text-decoration: none;
   width: 95%;
   max-width: 300px;
   text-align: center;
-  padding: 16px 0;
+  padding: 16px 24px;
   color: ${({ theme }) => theme.white};
   border-radius: 20px;
   cursor: pointer;
@@ -191,12 +190,7 @@ const ResumeButton = styled.a`
   }
 
   @media (max-width: 640px) {
-    padding: 12px 0;
-    font-size: 18px;
-  }
-
-  @media (max-width: 640px) {
-    padding: 12px 0;
+    padding: 12px 24px;
     font-size: 18px;
   }
 `;
